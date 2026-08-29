@@ -1,0 +1,13 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuración personal de IntelliJ IDEA
+.idea/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Esta versión frontend no usa dependencias de Node
+node_modules/
