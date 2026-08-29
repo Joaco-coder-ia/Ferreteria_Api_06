@@ -3,12 +3,264 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ferretería Los Maestros</title>
+    <meta
+      name="description"
+      content="Catálogo frontend de Ferretería Los Maestros"
+    />
+    <title>Ferretería Los Maestros | EP1</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <!-- PR 1: construye aquí la estructura semántica del proyecto. -->
 
+  <body>
+    <!-- Encabezado y navegación principal de la aplicación. -->
+    <header class="site-header">
+      <a
+        class="brand"
+        href="#inicio"
+        data-view="inicio"
+        aria-label="Volver al inicio"
+      >
+        <span class="brand-mark" aria-hidden="true">⌂</span>
+        <span>
+          <strong>Los Maestros</strong>
+          <small>Ferretería y construcción</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰ <span>Menú</span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio" data-view="inicio">Inicio</a>
+        <a href="#catalogo" data-view="catalogo">Catálogo</a>
+        <a href="#carrito" data-view="carrito">
+          Carrito <span id="cart-count" class="badge">0</span>
+        </a>
+        <a href="#cuenta" data-view="cuenta">Mi cuenta</a>
+        <a class="nav-login" href="#acceso" data-view="acceso">Ingresar</a>
+      </nav>
+    </header>
+
+    <!-- Contenedor principal. JavaScript muestra una vista y oculta las demás. -->
+    <main id="app" tabindex="-1">
+      <!-- Vista de inicio. -->
+      <section id="view-inicio" class="view hero-view">
+        <div class="hero-copy">
+          <p class="eyebrow">22 años apoyando a La Serena</p>
+          <h1>Materiales listos cuando la obra los necesita.</h1>
+          <p>
+            Consulta disponibilidad, prepara tu pedido y elige retiro en tienda o
+            despacho.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="#catalogo"
+              data-view="catalogo"
+            >
+              Ver catálogo
+            </a>
+            <a
+              class="button button-outline"
+              href="#catalogo"
+              data-view="catalogo"
+            >
+              Buscar productos
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-summary" aria-label="Resumen del catálogo">
+          <p>Catálogo de muestra</p>
+          <strong id="hero-total">85</strong>
+          <span>referencias cargadas desde la planilla oficial</span>
+
+          <div class="summary-grid">
+            <div>
+              <b id="hero-categories">—</b>
+              <small>Categorías</small>
+            </div>
+            <div>
+              <b id="hero-stock">—</b>
+              <small>Con stock</small>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Beneficios visibles solamente en la página de inicio. -->
+      <section class="content-section intro-section" data-home-only>
+        <p class="eyebrow">Una consulta sin llamadas</p>
+        <h2>Todo lo esencial para comenzar la compra</h2>
+
+        <div class="feature-grid">
+          <article>
+            <b>01</b>
+            <h3>Stock visible</h3>
+            <p>Disponibilidad y unidad de venta en cada ficha.</p>
+          </article>
+          <article>
+            <b>02</b>
+            <h3>Pedido trazable</h3>
+            <p>Carrito, entrega y confirmación en una sola vista.</p>
+          </article>
+          <article>
+            <b>03</b>
+            <h3>Datos claros</h3>
+            <p>Productos simulados desde el catálogo Excel de la actividad.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Vista del catálogo y sus filtros. -->
+      <section id="view-catalogo" class="view content-section" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Catálogo actualizado</p>
+          <h1>Encuentra lo que necesitas</h1>
+          <p id="catalog-status">Cargando productos…</p>
+        </div>
+
+        <form id="filter-form" class="filter-bar" novalidate>
+          <div>
+            <label for="search">Buscar por nombre, marca o código</label>
+            <input
+              id="search"
+              type="search"
+              placeholder="Ej.: taladro o HE001"
+            />
+          </div>
+
+          <div>
+            <label for="category">Categoría</label>
+            <select id="category">
+              <option>Todas</option>
+            </select>
+          </div>
+
+          <label class="check-label">
+            <input id="stock-only" type="checkbox" />
+            Sólo con stock
+          </label>
+        </form>
+
+        <div id="product-grid" class="product-grid"></div>
+      </section>
+
+      <!-- Vista con la ficha de un solo producto. -->
+      <section id="view-detalle" class="view content-section narrow" hidden>
+        <button class="text-button" type="button" data-view="catalogo">
+          ← Volver al catálogo
+        </button>
+        <div id="product-detail" class="detail-card"></div>
+      </section>
+
+      <!-- Vista del carrito de compras. -->
+      <section id="view-carrito" class="view content-section" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Solicitud de productos</p>
+          <h1>Tu carrito</h1>
+        </div>
+        <div id="cart-content"></div>
+      </section>
+
+      <!-- Vista de inicio de sesión con tres usuarios de demostración. -->
+      <section id="view-acceso" class="view content-section narrow" hidden>
+        <div class="auth-card">
+          <p class="eyebrow">Acceso de demostración</p>
+          <h1>Iniciar sesión</h1>
+          <p>
+            Selecciona un perfil para revisar el flujo visual. Los datos se
+            guardan sólo en este navegador.
+          </p>
+
+          <div class="demo-users">
+            <button type="button" data-demo="admin">Administrador</button>
+            <button type="button" data-demo="vendedor">Vendedor</button>
+            <button type="button" data-demo="cliente">Contratista demo</button>
+          </div>
+
+          <form id="login-form" novalidate>
+            <label for="login-email">Correo electrónico</label>
+            <input id="login-email" type="email" required />
+
+            <label for="login-password">Contraseña</label>
+            <input id="login-password" type="password" required />
+
+            <p id="login-error" class="form-error" role="alert" hidden></p>
+            <button class="button button-primary full" type="submit">
+              Entrar
+            </button>
+          </form>
+
+          <p class="form-help">Clave demo: <strong>demo123</strong></p>
+          <p class="form-help">
+            ¿Cliente nuevo?
+            <button type="button" class="link-button" data-view="registro">
+              Crear una cuenta
+            </button>
+          </p>
+        </div>
+      </section>
+
+      <!-- Vista de registro simulado para un cliente nuevo. -->
+      <section id="view-registro" class="view content-section narrow" hidden>
+        <div class="auth-card">
+          <p class="eyebrow">Nuevo cliente</p>
+          <h1>Crear una cuenta</h1>
+
+          <form id="register-form" novalidate>
+            <label for="register-name">Nombre completo</label>
+            <input id="register-name" required />
+
+            <label for="register-email">Correo electrónico</label>
+            <input id="register-email" type="email" required />
+
+            <label for="register-password">Contraseña</label>
+            <input
+              id="register-password"
+              type="password"
+              minlength="6"
+              required
+            />
+
+            <p
+              id="register-message"
+              class="form-message"
+              role="status"
+              hidden
+            ></p>
+            <button class="button button-primary full" type="submit">
+              Registrarme
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Vista de perfil e historial de pedidos guardados localmente. -->
+      <section id="view-cuenta" class="view content-section" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Perfil y pedidos</p>
+          <h1>Mi cuenta</h1>
+        </div>
+        <div id="account-content" class="account-grid"></div>
+      </section>
+    </main>
+
+    <!-- Pie de página con el contexto académico del proyecto. -->
+    <footer class="site-footer">
+      <strong>Ferretería Los Maestros</strong>
+      <span>Proyecto académico DSY1104 · EP1 Frontend</span>
+      <span>La Serena, Región de Coquimbo</span>
+    </footer>
+
+    <!-- JavaScript se carga al final para asegurar que el HTML ya exista. -->
     <script src="app.js"></script>
   </body>
 </html>
