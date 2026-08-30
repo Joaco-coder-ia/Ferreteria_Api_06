@@ -181,25 +181,297 @@
       </div>
 
 
+      <!--
+        Aquí dejamos los filtros del catálogo
+        JavaScript escucha los cambios de estos campos
+        y actualiza los productos automáticamente.
+      -->
+      <form id="filter-form" class="filter-bar" novalidate>
 
+        <div>
+
+          <!--Aquí podremos buscar nuestros productos por nombre, marca o código-->
+          <label for="search">Buscar por nombre, marca o código</label>
+
+          <input id="search" type="search" placeholder="Ej.: taladro o HE001" />
+
+        </div>
+
+
+        <div>
+
+          <!--Aquí podremos filtrar nuestros productos dependiendo de su categoría-->
+          <label for="category">Categoría</label>
+
+          <!--
+            Por ahora dejamos solamente la opción Todas
+            ya que las demás categorías las agregaremos automáticamente
+            desde JavaScript usando los productos del JSON.
+          -->
+          <select id="category">
+            <option>Todas</option>
+          </select>
+
+        </div>
+
+
+        <!--
+          Con este checkbox podremos elegir si queremos ver
+          solamente los productos que tengan stock disponible.
+        -->
+        <label class="check-label">
+
+          <input id="stock-only" type="checkbox" />
+
+          Sólo con stock
+
+        </label>
+
+      </form>
+
+
+      <!--
+        Este div lo dejamos vacío porque JavaScript se encargará
+        de ir generando aquí nuestras tarjetas de productos.
+      -->
+      <div id="product-grid" class="product-grid"></div>
 
     </section>
 
 
 
+    <!--Esta será nuestra vista para ver el detalle de un producto-->
+    <!--
+      La dejamos con hidden porque al principio no queremos mostrarla.
+      JavaScript la mostrará cuando seleccionemos un producto del catálogo.
+    -->
+    <section id="view-detalle" class="view content-section narrow" hidden>
 
+      <!--Con este botón podremos volver nuevamente a nuestro catálogo-->
+      <button class="text-button" type="button" data-view="catalogo">
+        ← Volver al catálogo
+      </button>
+
+
+      <!--
+        Este div comienza vacío porque JavaScript colocará aquí
+        toda la información del producto que nosotros seleccionemos
+        asi no quedara duda de nada del porque agregue esat seccion.
+      -->
+      <div id="product-detail" class="detail-card"></div>
+
+    </section>
+
+
+
+    <!--Esta será nuestra vista del carrito-->
+    <section id="view-carrito" class="view content-section" hidden>
+
+      <div class="section-heading">
+
+        <p class="eyebrow">Solicitud de productos</p>
+
+        <h1>Tu carrito</h1>
+
+      </div>
+
+
+      <!--
+        Aquí JavaScript ira amostrando los productos que agreguemos
+        junto con sus cantidades, el total y las opciones de entrega.
+      -->
+      <div id="cart-content"></div>
+
+    </section>
+
+
+
+    <!--Esta será nuestra vista para iniciar sesión-->
+    <section id="view-acceso" class="view content-section narrow" hidden>
+
+      <div class="auth-card">
+
+        <p class="eyebrow">Acceso de demostración</p>
+
+        <h1>Iniciar sesión</h1>
+
+        <p>
+          Selecciona un perfil para revisar el flujo visual.
+          Los datos se guardan sólo en este navegador.
+        </p>
+
+
+        <!--
+          Aquí dejamos nuestros perfiles de prueba
+          Cuando seleccionemos uno JavaScript rellenará automáticamente
+          el correo y la contraseña correspondientes.
+        -->
+        <div class="demo-users">
+
+          <button type="button" data-demo="admin">
+            Administrador
+          </button>
+
+          <button type="button" data-demo="vendedor">
+            Vendedor
+          </button>
+
+          <button type="button" data-demo="cliente">
+            Contratista demo
+          </button>
+
+        </div>
+
+
+        <!--Aquí creamos nuestro formulario para poder iniciar sesión-->
+        <form id="login-form" novalidate>
+
+          <label for="login-email">Correo electrónico</label>
+
+          <input id="login-email" type="email" required />
+
+
+          <label for="login-password">Contraseña</label>
+
+          <input id="login-password" type="password" required />
+
+
+          <!--
+            Este mensaje solamente aparecerá si ocurre algún problema
+            al momento de intentar iniciar sesión.
+          -->
+          <p id="login-error" class="form-error" role="alert" hidden></p>
+
+
+          <button class="button button-primary full" type="submit">
+            Entrar
+          </button>
+
+        </form>
+
+
+        <!--
+          Como por ahora estamos trabajando con una demostración
+          dejamos visible la clave que utilizaremos para estos usuarios.
+        -->
+        <p class="form-help">
+          Clave demo:
+          <strong>demo123</strong>
+        </p>
+
+
+        <p class="form-help">
+
+          ¿Cliente nuevo?
+
+          <!--Con este botón podremos ir directamente a nuestra vista de registro-->
+          <button type="button" class="link-button" data-view="registro">
+            Crear una cuenta
+          </button>
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!--Esta será nuestra vista para registrar un nuevo usuario-->
+    <section id="view-registro" class="view content-section narrow" hidden>
+
+      <div class="auth-card">
+
+        <p class="eyebrow">Nuevo cliente</p>
+
+        <h1>Crear una cuenta</h1>
+
+
+        <!--
+          Este registro por ahora será simulado para nuestra EP1.
+          Todavía no enviaremos estos datos a una base de datos real.
+        -->
+        <form id="register-form" novalidate>
+
+          <label for="register-name">Nombre completo</label>
+
+          <input id="register-name" required />
+
+
+          <label for="register-email">Correo electrónico</label>
+
+          <input id="register-email" type="email" required />
+
+
+          <label for="register-password">Contraseña</label>
+
+          <input id="register-password" type="password" minlength="6" required />
+
+
+          <!--
+            Aquí mostraremos un mensaje para indicar
+            si nuestro registro simulado se realizó correctamente o no.
+          -->
+          <p id="register-message" class="form-message" role="status" hidden></p>
+
+
+          <button class="button button-primary full" type="submit">
+            Registrarme
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+
+    <!--Esta será nuestra vista de la cuenta-->
+    <section id="view-cuenta" class="view content-section" hidden>
+
+      <div class="section-heading">
+
+        <p class="eyebrow">Perfil y pedidos</p>
+
+        <h1>Mi cuenta</h1>
+
+      </div>
+
+
+      <!--
+        Este espacio lo dejamos vacío porque JavaScript
+        mostrará aquí el usuario conectado y su historial de pedidos.
+      -->
+      <div id="account-content" class="account-grid"></div>
+
+    </section>
 
   </main>
 
 
 
+  <!--
+    Aquí dejamos nuestro footer que será la parte final del sitio
+    y donde mostramos la información general de nuestro proyecto.
+  -->
+  <footer class="site-footer">
+
+    <strong>Ferretería Los Maestros</strong>
+
+    <span>Proyecto académico DSY1104 · EP1 Frontend</span>
+
+    <span>La Serena, Región de Coquimbo</span>
+
+  </footer>
 
 
   <!--
-    Con esto conectamos nuestro JavaScript.
+    Con esto conectamos nuestro JavaScript
     Lo dejamos al final para que primero cargue todo el HTML.
     -->
   <script src="app.js"></script>
+
 </body>
 
 </html>
