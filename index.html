@@ -1,14 +1,205 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ferretería Los Maestros</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- PR 1: construye aquí la estructura semántica del proyecto. -->
 
-    <script src="app.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Aquí hacemos que la página se adapte correctamente a celulares, tablets y computadores. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Esta descripcion ayuda a identificar de que trata nuestro sitio.-->
+  <meta name="descripcion" content="Catalogo frontend de Ferreteria Los Maestros" />
+
+  <title>Ferretería Los Maestros | EP1</title>
+
+  <!--Con esto nos conectamos a nuestrp archivo CSS con el HTML.-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- PR 1: Construimos aquí la estructura semántica del proyecto. -->
+  <header class="site-header">
+
+    <a class="brand" href="#inicio" data-view="inicio" aria-label="Volver al inicio">
+
+      <span class="brand-mark" aria-hidden="true"> ⌂ </span>
+
+      <span>
+        <strong>Los Maestros</strong>
+        <small>Ferreteria y construcción</small>
+      </span>
+
+    </a>
+
+
+    <!--Este boton lo utilizaremos principalmente cuando la pagina se vea desde el celular. -->
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      ☰
+      <span>Menú</span>
+    </button>
+
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+
+      <a href="#inicio" data-view="inicio">Inicio</a>
+      <a href="#catalogo" data-view="catalogo">Catálogo</a>
+      <a href="#carrito" data-view="carrito">Carrito</a>
+      <a href="#cuenta" data-view="cuenta">Mi cuenta</a>
+      <a href="#acceso" data-view="acceso">Ingreso</a>
+
+    </nav>
+
+  </header>
+
+
+  <!--
+  Aquí empiezaremos el contenido principal de nuestra aplicación.
+   Y JavaScript va mostrando y ocultando las distintas vistas.
+  -->
+  <main id="app" tabindex="-1">
+
+    <!--Nuestra vista de inicio-->
+    <section id="view-inicio" class="view hero-view">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow"> 22 Años apoyando a La Serena</p>
+
+        <h1>Materiales listos cuando la obra los necesita.</h1>
+
+        <p>
+          Consulta disponibilidad, prepara tu pedido
+          y elige retiro en tienda o despacho.
+        </p>
+
+        <div class="button-row">
+
+          <a class="button button-primary" href="#catalogo" data-view="catalogo">Ver catálogo</a>
+          <a class="button button-outline" href="#catalogo" data-view="catalogo">Buscar productos</a>
+
+        </div>
+
+      </div>
+
+
+      <!--
+        Estos numeros que iremos poniendo aqui se iran actualizando desde el JavaScript
+        cuando carguemos los productos del archivo JSON
+      -->
+      <!--Y bueno(<aside>) lo vamos a usar para crear barras laterales o secciones con contenido secundarip-->
+      <aside class="hero-semmary" aria-label="Resumen del catálogo">
+
+        <p>Catálogo de muestra</p>
+
+        <strong id="hero-total">85</strong>
+
+        <span>Referencias cargadas desde la plantilla oficial</span>
+
+        <div class="summary-grid">
+
+          <div>
+            <b id="hero-categorias">—</b>
+            <small>Categorías</small>
+          </div>
+
+          <div>
+            <b id="hero-stock">—</b>
+            <small>Con stock</small>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+
+    <!--
+      Con data-home-only lo que hacemos es que indicamos que esta parte solamente
+      debe aaprecer cuando entamos en la pagina de inicio
+    -->
+    <section class="content-section intro-section" data-home-only>
+
+      <p class="eyebrow">Una consulta sin llamadas</p>
+
+      <h2>Todo lo esencial para comenzar la compra</h2>
+
+      <div class="feature-grid">
+
+        <article>
+
+          <b>01</b>
+
+          <h3>Stock visible</h3>
+
+          <p>Disponibilidad y unidad de venta en cada ficha.</p>
+
+        </article>
+
+        <article>
+
+          <b>02</b>
+
+          <h3>Pedido trazable</h3>
+
+          <p>Carrito, entrega y confirmación en una sola vista.</p>
+
+        </article>
+
+        <article>
+
+          <b>03</b>
+
+          <h3>Datos claros</h3>
+
+          <p>Productos simulados desde el catalogo Excel de la actividad.</p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!--Esta sera nuestra vista del catalogo-->
+    <!--
+    El hidden lo colocamos para que no se vea en la pantalla,
+    lo que seria para poder ocultar el elemento
+    -->
+    <section id="view-catalogo" class="view content-section" hidden>
+
+      <div class="section-heading">
+
+        <p class="eyebrow">Catáalogo actualizado</p>
+
+        <h1>Encuentra lo que necesites</h1>
+
+        <!--Entonces con esto el JavaScript cambia 
+        este texto segun los productos encontrados
+        -->
+        <p id="catalog-status">Cargando productos....</p>
+
+      </div>
+
+
+
+
+    </section>
+
+
+
+
+
+  </main>
+
+
+
+
+
+  <!--
+    Con esto conectamos nuestro JavaScript.
+    Lo dejamos al final para que primero cargue todo el HTML.
+    -->
+  <script src="app.js"></script>
+</body>
+
 </html>
