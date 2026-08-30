@@ -1,6 +1,4 @@
-// =============================================================
 // 1. DATOS DE DEMOSTRACIÓN Y ESTADO GENERAL DE LA APLICACIÓN
-// =============================================================
 
 // Estos perfiles permiten probar el inicio de sesión sin un backend.
 const demoUsers = {
@@ -45,9 +43,8 @@ const state = {
   user: loadLocalData('ep1-user', null),
 };
 
-// =============================================================
+
 // 2. FUNCIONES AUXILIARES
-// =============================================================
 
 // Atajo para seleccionar el primer elemento que coincida con un selector CSS.
 const $ = (selector) => document.querySelector(selector);
@@ -74,9 +71,8 @@ function saveState() {
   $('#cart-count').textContent = totalUnits;
 }
 
-// =============================================================
+
 // 3. NAVEGACIÓN ENTRE VISTAS
-// =============================================================
 
 // Muestra la sección solicitada y oculta las demás secciones principales.
 function showView(viewName) {
@@ -116,9 +112,7 @@ function showView(viewName) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// =============================================================
 // 4. CATÁLOGO Y DETALLE DE PRODUCTOS
-// =============================================================
 
 // Crea el HTML de una tarjeta del catálogo.
 function createProductCard(product) {
@@ -229,9 +223,7 @@ function renderProductDetail(productCode) {
   showView('detalle');
 }
 
-// =============================================================
 // 5. CARRITO Y PEDIDOS
-// =============================================================
 
 // Agrega una unidad al carrito sin superar el stock disponible.
 function addToCart(productCode) {
@@ -394,9 +386,7 @@ function confirmOrder(orderForm) {
   `;
 }
 
-// =============================================================
 // 6. ACCESO, REGISTRO Y CUENTA
-// =============================================================
 
 // Dibuja los datos del usuario y el historial local de pedidos.
 function renderAccount() {
@@ -502,10 +492,7 @@ function register(registerForm) {
   showView('cuenta');
 }
 
-// =============================================================
 // 7. MANEJO DE EVENTOS
-// =============================================================
-
 // Un solo evento administra botones generados en el HTML y por JavaScript.
 document.addEventListener('click', (event) => {
   const viewButton = event.target.closest('[data-view]');
@@ -573,9 +560,7 @@ document.addEventListener('submit', (event) => {
   }
 });
 
-// =============================================================
 // 8. CARGA INICIAL DEL CATÁLOGO
-// =============================================================
 
 // Lee el archivo JSON local, prepara las categorías y actualiza el resumen.
 fetch('data/productos.json')
