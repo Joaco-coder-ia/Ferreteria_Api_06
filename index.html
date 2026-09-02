@@ -4,98 +4,81 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Aquí hacemos que la página se adapte correctamente a celulares, tablets y computadores. -->
+  <!-- Permite que la página se adapte a celulares, tablets y computadores. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Esta descripcion ayuda a identificar de que trata nuestro sitio.-->
-  <meta name="descripcion" content="Catalogo frontend de Ferreteria Los Maestros" />
+  <!-- Esta descripción ayuda a identificar el contenido del sitio. -->
+  <meta name="description" content="Catálogo frontend de Ferretería Los Maestros" />
 
   <title>Ferretería Los Maestros | EP1</title>
 
-  <!--Con esto nos conectamos a nuestrp archivo CSS con el HTML.-->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Conectamos el documento HTML con la hoja de estilos externa. -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- PR 1: Construimos aquí la estructura semántica del proyecto. -->
+  <!-- Construimos aquí la estructura semántica principal del proyecto. -->
+  <!-- Encabezado y navegación principal del sitio. -->
   <header class="site-header">
-
-    <a class="brand" href="#inicio" data-view="inicio" aria-label="Volver al inicio">
-
-      <span class="brand-mark" aria-hidden="true"> ⌂ </span>
+    <a class="brand" href="index.html" aria-label="Volver al inicio">
+      <span class="brand-mark" aria-hidden="true">⌂</span>
 
       <span>
         <strong>Los Maestros</strong>
-        <small>Ferreteria y construcción</small>
+        <small>Ferretería y construcción</small>
       </span>
-
     </a>
 
-
-    <!--Este boton lo utilizaremos principalmente cuando la pagina se vea desde el celular. -->
+    <!-- Este botón se utilizará principalmente en pantallas pequeñas. -->
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
       ☰
       <span>Menú</span>
     </button>
 
     <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
-
-      <a href="#inicio" data-view="inicio">Inicio</a>
-      <a href="#catalogo" data-view="catalogo">Catálogo</a>
-      <a href="#carrito" data-view="carrito">Carrito</a>
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="productos.html">Catálogo</a>
+      <a href="productos.html#carrito" data-view="carrito">Carrito</a>
+      <a href="contacto.html">Contacto</a>
       <a href="#cuenta" data-view="cuenta">Mi cuenta</a>
       <a href="#acceso" data-view="acceso">Ingreso</a>
-
     </nav>
-
   </header>
 
-
   <!--
-  Aquí empiezaremos el contenido principal de nuestra aplicación.
-   Y JavaScript va mostrando y ocultando las distintas vistas.
+    Aquí comienza el contenido principal de nuestra aplicación.
+    JavaScript mostrará y ocultará las vistas que pertenecen a esta página.
   -->
   <main id="app" tabindex="-1">
-
-    <!--Nuestra vista de inicio-->
+    <!-- Vista de inicio. -->
     <section id="view-inicio" class="view hero-view">
-
       <div class="hero-copy">
-
-        <p class="eyebrow"> 22 Años apoyando a La Serena</p>
+        <p class="eyebrow">22 años apoyando a La Serena</p>
 
         <h1>Materiales listos cuando la obra los necesita.</h1>
 
         <p>
-          Consulta disponibilidad, prepara tu pedido
-          y elige retiro en tienda o despacho.
+          Consulta disponibilidad, prepara tu pedido y elige retiro en tienda o
+          despacho.
         </p>
 
         <div class="button-row">
-
-          <a class="button button-primary" href="#catalogo" data-view="catalogo">Ver catálogo</a>
-          <a class="button button-outline" href="#catalogo" data-view="catalogo">Buscar productos</a>
-
+          <a class="button button-primary" href="productos.html">Ver catálogo</a>
+          <a class="button button-outline" href="productos.html">Buscar productos</a>
         </div>
-
       </div>
 
-
       <!--
-        Estos numeros que iremos poniendo aqui se iran actualizando desde el JavaScript
-        cuando carguemos los productos del archivo JSON
+        Estos números se actualizarán desde JavaScript cuando carguemos
+        los productos almacenados en el archivo JSON.
       -->
-      <!--Y bueno(<aside>) lo vamos a usar para crear barras laterales o secciones con contenido secundarip-->
-      <aside class="hero-semmary" aria-label="Resumen del catálogo">
-
+      <!-- Usamos aside para mostrar información secundaria del catálogo. -->
+      <aside class="hero-summary" aria-label="Resumen del catálogo">
         <p>Catálogo de muestra</p>
-
         <strong id="hero-total">85</strong>
-
         <span>Referencias cargadas desde la plantilla oficial</span>
 
         <div class="summary-grid">
-
           <div>
             <b id="hero-categorias">—</b>
             <small>Categorías</small>
@@ -105,373 +88,146 @@
             <b id="hero-stock">—</b>
             <small>Con stock</small>
           </div>
-
         </div>
-
       </aside>
-
     </section>
 
-
     <!--
-      Con data-home-only lo que hacemos es que indicamos que esta parte solamente
-      debe aaprecer cuando entamos en la pagina de inicio
+      data-home-only indica que este contenido pertenece únicamente
+      a la página de inicio.
     -->
     <section class="content-section intro-section" data-home-only>
-
       <p class="eyebrow">Una consulta sin llamadas</p>
-
       <h2>Todo lo esencial para comenzar la compra</h2>
 
       <div class="feature-grid">
-
         <article>
-
           <b>01</b>
-
           <h3>Stock visible</h3>
-
           <p>Disponibilidad y unidad de venta en cada ficha.</p>
-
         </article>
 
         <article>
-
           <b>02</b>
-
           <h3>Pedido trazable</h3>
-
           <p>Carrito, entrega y confirmación en una sola vista.</p>
-
         </article>
 
         <article>
-
           <b>03</b>
-
           <h3>Datos claros</h3>
-
-          <p>Productos simulados desde el catalogo Excel de la actividad.</p>
-
+          <p>Productos simulados desde el catálogo Excel de la actividad.</p>
         </article>
-
       </div>
-
     </section>
 
-
-    <!--Esta sera nuestra vista del catalogo-->
-    <!--
-    El hidden lo colocamos para que no se vea en la pantalla,
-    lo que seria para poder ocultar el elemento
-    -->
-    <section id="view-catalogo" class="view content-section" hidden>
-
-      <div class="section-heading">
-
-        <p class="eyebrow">Catáalogo actualizado</p>
-
-        <h1>Encuentra lo que necesites</h1>
-
-        <!--Entonces con esto el JavaScript cambia 
-        este texto segun los productos encontrados
-        -->
-        <p id="catalog-status">Cargando productos....</p>
-
-      </div>
-
-
-      <!--
-        Aquí dejamos los filtros del catálogo
-        JavaScript escucha los cambios de estos campos
-        y actualiza los productos automáticamente.
-      -->
-      <form id="filter-form" class="filter-bar" novalidate>
-
-        <div>
-
-          <!--Aquí podremos buscar nuestros productos por nombre, marca o código-->
-          <label for="search">Buscar por nombre, marca o código</label>
-
-          <input id="search" type="search" placeholder="Ej.: taladro o HE001" />
-
-        </div>
-
-
-        <div>
-
-          <!--Aquí podremos filtrar nuestros productos dependiendo de su categoría-->
-          <label for="category">Categoría</label>
-
-          <!--
-            Por ahora dejamos solamente la opción Todas
-            ya que las demás categorías las agregaremos automáticamente
-            desde JavaScript usando los productos del JSON.
-          -->
-          <select id="category">
-            <option>Todas</option>
-          </select>
-
-        </div>
-
-
-        <!--
-          Con este checkbox podremos elegir si queremos ver
-          solamente los productos que tengan stock disponible.
-        -->
-        <label class="check-label">
-
-          <input id="stock-only" type="checkbox" />
-
-          Sólo con stock
-
-        </label>
-
-      </form>
-
-
-      <!--
-        Este div lo dejamos vacío porque JavaScript se encargará
-        de ir generando aquí nuestras tarjetas de productos.
-      -->
-      <div id="product-grid" class="product-grid"></div>
-
-    </section>
-
-
-
-    <!--Esta será nuestra vista para ver el detalle de un producto-->
-    <!--
-      La dejamos con hidden porque al principio no queremos mostrarla.
-      JavaScript la mostrará cuando seleccionemos un producto del catálogo.
-    -->
-    <section id="view-detalle" class="view content-section narrow" hidden>
-
-      <!--Con este botón podremos volver nuevamente a nuestro catálogo-->
-      <button class="text-button" type="button" data-view="catalogo">
-        ← Volver al catálogo
-      </button>
-
-
-      <!--
-        Este div comienza vacío porque JavaScript colocará aquí
-        toda la información del producto que nosotros seleccionemos
-        asi no quedara duda de nada del porque agregue esat seccion.
-      -->
-      <div id="product-detail" class="detail-card"></div>
-
-    </section>
-
-
-
-    <!--Esta será nuestra vista del carrito-->
-    <section id="view-carrito" class="view content-section" hidden>
-
-      <div class="section-heading">
-
-        <p class="eyebrow">Solicitud de productos</p>
-
-        <h1>Tu carrito</h1>
-
-      </div>
-
-
-      <!--
-        Aquí JavaScript ira amostrando los productos que agreguemos
-        junto con sus cantidades, el total y las opciones de entrega.
-      -->
-      <div id="cart-content"></div>
-
-    </section>
-
-
-
-    <!--Esta será nuestra vista para iniciar sesión-->
+    <!-- Vista para iniciar sesión. -->
     <section id="view-acceso" class="view content-section narrow" hidden>
-
       <div class="auth-card">
-
         <p class="eyebrow">Acceso de demostración</p>
-
         <h1>Iniciar sesión</h1>
 
         <p>
-          Selecciona un perfil para revisar el flujo visual.
-          Los datos se guardan sólo en este navegador.
+          Selecciona un perfil para revisar el flujo visual. Los datos se guardan
+          sólo en este navegador.
         </p>
 
-
         <!--
-          Aquí dejamos nuestros perfiles de prueba
-          Cuando seleccionemos uno JavaScript rellenará automáticamente
-          el correo y la contraseña correspondientes.
+          Estos perfiles de prueba permitirán que JavaScript complete
+          automáticamente los datos del formulario de demostración.
         -->
         <div class="demo-users">
-
-          <button type="button" data-demo="admin">
-            Administrador
-          </button>
-
-          <button type="button" data-demo="vendedor">
-            Vendedor
-          </button>
-
-          <button type="button" data-demo="cliente">
-            Contratista demo
-          </button>
-
+          <button type="button" data-demo="admin">Administrador</button>
+          <button type="button" data-demo="vendedor">Vendedor</button>
+          <button type="button" data-demo="cliente">Contratista demo</button>
         </div>
 
-
-        <!--Aquí creamos nuestro formulario para poder iniciar sesión-->
+        <!-- Formulario utilizado para simular el inicio de sesión. -->
         <form id="login-form" novalidate>
-
           <label for="login-email">Correo electrónico</label>
-
-          <input id="login-email" type="email" required />
-
+          <input id="login-email" type="email" maxlength="100" required />
 
           <label for="login-password">Contraseña</label>
-
           <input id="login-password" type="password" required />
 
-
-          <!--
-            Este mensaje solamente aparecerá si ocurre algún problema
-            al momento de intentar iniciar sesión.
-          -->
+          <!-- Este mensaje aparecerá cuando ocurra un problema de validación. -->
           <p id="login-error" class="form-error" role="alert" hidden></p>
 
-
-          <button class="button button-primary full" type="submit">
-            Entrar
-          </button>
-
+          <button class="button button-primary full" type="submit">Entrar</button>
         </form>
 
-
-        <!--
-          Como por ahora estamos trabajando con una demostración
-          dejamos visible la clave que utilizaremos para estos usuarios.
-        -->
-        <p class="form-help">
-          Clave demo:
-          <strong>demo123</strong>
-        </p>
-
+        <!-- La clave se mantiene visible porque este acceso es sólo una demostración. -->
+        <p class="form-help">Clave demo: <strong>demo123</strong></p>
 
         <p class="form-help">
-
           ¿Cliente nuevo?
-
-          <!--Con este botón podremos ir directamente a nuestra vista de registro-->
+          <!-- Este botón permitirá cambiar a la vista de registro. -->
           <button type="button" class="link-button" data-view="registro">
             Crear una cuenta
           </button>
-
         </p>
-
       </div>
-
     </section>
 
-
-
-    <!--Esta será nuestra vista para registrar un nuevo usuario-->
+    <!-- Vista para registrar un nuevo usuario. -->
     <section id="view-registro" class="view content-section narrow" hidden>
-
       <div class="auth-card">
-
         <p class="eyebrow">Nuevo cliente</p>
-
         <h1>Crear una cuenta</h1>
 
-
         <!--
-          Este registro por ahora será simulado para nuestra EP1.
-          Todavía no enviaremos estos datos a una base de datos real.
+          El registro será simulado para la EP1 y no enviará
+          información a una base de datos real.
         -->
         <form id="register-form" novalidate>
-
           <label for="register-name">Nombre completo</label>
-
           <input id="register-name" required />
 
-
           <label for="register-email">Correo electrónico</label>
-
           <input id="register-email" type="email" required />
 
-
           <label for="register-password">Contraseña</label>
-
           <input id="register-password" type="password" minlength="6" required />
 
-
-          <!--
-            Aquí mostraremos un mensaje para indicar
-            si nuestro registro simulado se realizó correctamente o no.
-          -->
+          <!-- Aquí se mostrará el resultado de la validación y del registro simulado. -->
           <p id="register-message" class="form-message" role="status" hidden></p>
 
-
-          <button class="button button-primary full" type="submit">
-            Registrarme
-          </button>
-
+          <button class="button button-primary full" type="submit">Registrarme</button>
         </form>
-
       </div>
-
     </section>
 
-
-
-    <!--Esta será nuestra vista de la cuenta-->
+    <!-- Vista de la cuenta del usuario. -->
     <section id="view-cuenta" class="view content-section" hidden>
-
       <div class="section-heading">
-
         <p class="eyebrow">Perfil y pedidos</p>
-
         <h1>Mi cuenta</h1>
-
       </div>
-
 
       <!--
-        Este espacio lo dejamos vacío porque JavaScript
-        mostrará aquí el usuario conectado y su historial de pedidos.
+        Este espacio comienza vacío porque JavaScript mostrará aquí
+        el usuario conectado y su historial de pedidos simulado.
       -->
       <div id="account-content" class="account-grid"></div>
-
     </section>
-
   </main>
 
-
-
   <!--
-    Aquí dejamos nuestro footer que será la parte final del sitio
-    y donde mostramos la información general de nuestro proyecto.
+    El footer corresponde a la parte final del sitio y contiene
+    la información general del proyecto.
   -->
   <footer class="site-footer">
-
     <strong>Ferretería Los Maestros</strong>
-
     <span>Proyecto académico DSY1104 · EP1 Frontend</span>
-
     <span>La Serena, Región de Coquimbo</span>
-
   </footer>
 
-
   <!--
-    Con esto conectamos nuestro JavaScript
-    Lo dejamos al final para que primero cargue todo el HTML.
-    -->
-  <script src="app.js"></script>
-
+    La lógica general y las validaciones se mantienen en archivos separados.
+    Los scripts se cargan al final para procesar primero la estructura HTML.
+  -->
+  <script src="js/app.js"></script>
+  <script src="js/validaciones.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de productos de Ferretería Los Maestros" />
+  <title>Productos | Ferretería Los Maestros</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- Encabezado y navegación principal del sitio. -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Volver al inicio">
+      <span class="brand-mark" aria-hidden="true">⌂</span>
+      <span>
+        <strong>Los Maestros</strong>
+        <small>Ferretería y construcción</small>
+      </span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      ☰
+      <span>Menú</span>
+    </button>
+
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="productos.html" aria-current="page">Catálogo</a>
+      <a href="#carrito" data-view="carrito">Carrito</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="index.html#cuenta" data-view="cuenta">Mi cuenta</a>
+      <a href="index.html#acceso" data-view="acceso">Ingreso</a>
+    </nav>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <!-- Vista principal del catálogo. -->
+    <!--
+      En esta página el catálogo se muestra primero; las vistas de detalle
+      y carrito permanecen ocultas hasta que JavaScript las active.
+    -->
+    <section id="view-catalogo" class="view content-section">
+      <div class="section-heading">
+        <p class="eyebrow">Catálogo actualizado</p>
+        <h1>Encuentra lo que necesites</h1>
+
+        <!-- JavaScript cambiará este texto según la cantidad de productos encontrados. -->
+        <p id="catalog-status">Cargando productos...</p>
+      </div>
+
+      <!--
+        JavaScript escuchará los cambios de estos filtros y actualizará
+        automáticamente los productos presentados en pantalla.
+      -->
+      <form id="filter-form" class="filter-bar" novalidate>
+        <div>
+          <!-- Aquí podremos buscar productos por nombre, marca o código. -->
+          <label for="search">Buscar por nombre, marca o código</label>
+          <input id="search" type="search" placeholder="Ej.: taladro o HE001" />
+        </div>
+
+        <div>
+          <!-- Aquí podremos filtrar los productos según su categoría. -->
+          <label for="category">Categoría</label>
+          <!-- Las demás categorías se agregarán desde los datos del JSON. -->
+          <select id="category">
+            <option>Todas</option>
+          </select>
+        </div>
+
+        <!-- Este control permitirá mostrar únicamente productos con stock. -->
+        <label class="check-label">
+          <input id="stock-only" type="checkbox" />
+          Sólo con stock
+        </label>
+      </form>
+
+      <!--
+        Este contenedor comienza vacío porque JavaScript generará aquí
+        las tarjetas correspondientes a cada producto.
+      -->
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <!-- Vista que mostrará el detalle del producto seleccionado. -->
+    <!-- Se mantiene oculta hasta que el usuario seleccione un producto. -->
+    <section id="view-detalle" class="view content-section narrow" hidden>
+      <!-- Este botón permitirá regresar al catálogo. -->
+      <button class="text-button" type="button" data-view="catalogo">
+        ← Volver al catálogo
+      </button>
+
+      <!-- JavaScript insertará aquí la información del producto seleccionado. -->
+      <div id="product-detail" class="detail-card"></div>
+    </section>
+
+    <!-- Vista del carrito de compras simulado. -->
+    <section id="view-carrito" class="view content-section" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">Solicitud de productos</p>
+        <h1>Tu carrito</h1>
+      </div>
+
+      <!-- JavaScript mostrará aquí los productos, cantidades y totales. -->
+      <div id="cart-content"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Ferretería Los Maestros</strong>
+    <span>Proyecto académico DSY1104 · EP1 Frontend</span>
+    <span>La Serena, Región de Coquimbo</span>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+
+</html>
