@@ -37,45 +37,62 @@
 
   <main id="app" tabindex="-1">
     <!-- Vista principal del catálogo. -->
+    <!--
+      En esta página el catálogo se muestra primero; las vistas de detalle
+      y carrito permanecen ocultas hasta que JavaScript las active.
+    -->
     <section id="view-catalogo" class="view content-section">
       <div class="section-heading">
         <p class="eyebrow">Catálogo actualizado</p>
         <h1>Encuentra lo que necesites</h1>
 
-        <!-- JavaScript actualizará este texto según los productos encontrados. -->
+        <!-- JavaScript cambiará este texto según la cantidad de productos encontrados. -->
         <p id="catalog-status">Cargando productos...</p>
       </div>
 
-      <!-- Filtros que serán controlados desde js/catalogo.js. -->
+      <!--
+        JavaScript escuchará los cambios de estos filtros y actualizará
+        automáticamente los productos presentados en pantalla.
+      -->
       <form id="filter-form" class="filter-bar" novalidate>
         <div>
+          <!-- Aquí podremos buscar productos por nombre, marca o código. -->
           <label for="search">Buscar por nombre, marca o código</label>
           <input id="search" type="search" placeholder="Ej.: taladro o HE001" />
         </div>
 
         <div>
+          <!-- Aquí podremos filtrar los productos según su categoría. -->
           <label for="category">Categoría</label>
+          <!-- Las demás categorías se agregarán desde los datos del JSON. -->
           <select id="category">
             <option>Todas</option>
           </select>
         </div>
 
+        <!-- Este control permitirá mostrar únicamente productos con stock. -->
         <label class="check-label">
           <input id="stock-only" type="checkbox" />
           Sólo con stock
         </label>
       </form>
 
-      <!-- JavaScript generará aquí las tarjetas de productos. -->
+      <!--
+        Este contenedor comienza vacío porque JavaScript generará aquí
+        las tarjetas correspondientes a cada producto.
+      -->
       <div id="product-grid" class="product-grid"></div>
     </section>
 
     <!-- Vista que mostrará el detalle del producto seleccionado. -->
+    <!-- Se mantiene oculta hasta que el usuario seleccione un producto. -->
     <section id="view-detalle" class="view content-section narrow" hidden>
+      <!-- Este botón permitirá regresar al catálogo. -->
       <button class="text-button" type="button" data-view="catalogo">
         ← Volver al catálogo
       </button>
 
+      <!-- JavaScript insertará aquí la información del producto seleccionado. -->
       <div id="product-detail" class="detail-card"></div>
     </section>
 
@@ -86,6 +103,7 @@
         <h1>Tu carrito</h1>
       </div>
 
+      <!-- JavaScript mostrará aquí los productos, cantidades y totales. -->
       <div id="cart-content"></div>
     </section>
   </main>

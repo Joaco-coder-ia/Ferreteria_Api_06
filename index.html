@@ -17,6 +17,7 @@
 </head>
 
 <body>
+  <!-- Construimos aquí la estructura semántica principal del proyecto. -->
   <!-- Encabezado y navegación principal del sitio. -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Volver al inicio">
@@ -44,7 +45,10 @@
     </nav>
   </header>
 
-  <!-- Aquí comienza el contenido principal de la aplicación. -->
+  <!--
+    Aquí comienza el contenido principal de nuestra aplicación.
+    JavaScript mostrará y ocultará las vistas que pertenecen a esta página.
+  -->
   <main id="app" tabindex="-1">
     <!-- Vista de inicio. -->
     <section id="view-inicio" class="view hero-view">
@@ -64,7 +68,11 @@
         </div>
       </div>
 
-      <!-- JavaScript actualizará estas cifras al cargar el catálogo JSON. -->
+      <!--
+        Estos números se actualizarán desde JavaScript cuando carguemos
+        los productos almacenados en el archivo JSON.
+      -->
+      <!-- Usamos aside para mostrar información secundaria del catálogo. -->
       <aside class="hero-summary" aria-label="Resumen del catálogo">
         <p>Catálogo de muestra</p>
         <strong id="hero-total">85</strong>
@@ -84,8 +92,11 @@
       </aside>
     </section>
 
-    <!-- Contenido complementario visible en la página de inicio. -->
-    <section class="content-section intro-section">
+    <!--
+      data-home-only indica que este contenido pertenece únicamente
+      a la página de inicio.
+    -->
+    <section class="content-section intro-section" data-home-only>
       <p class="eyebrow">Una consulta sin llamadas</p>
       <h2>Todo lo esencial para comenzar la compra</h2>
 
@@ -121,13 +132,17 @@
           sólo en este navegador.
         </p>
 
-        <!-- Perfiles de prueba para completar el formulario de demostración. -->
+        <!--
+          Estos perfiles de prueba permitirán que JavaScript complete
+          automáticamente los datos del formulario de demostración.
+        -->
         <div class="demo-users">
           <button type="button" data-demo="admin">Administrador</button>
           <button type="button" data-demo="vendedor">Vendedor</button>
           <button type="button" data-demo="cliente">Contratista demo</button>
         </div>
 
+        <!-- Formulario utilizado para simular el inicio de sesión. -->
         <form id="login-form" novalidate>
           <label for="login-email">Correo electrónico</label>
           <input id="login-email" type="email" maxlength="100" required />
@@ -135,15 +150,18 @@
           <label for="login-password">Contraseña</label>
           <input id="login-password" type="password" required />
 
+          <!-- Este mensaje aparecerá cuando ocurra un problema de validación. -->
           <p id="login-error" class="form-error" role="alert" hidden></p>
 
           <button class="button button-primary full" type="submit">Entrar</button>
         </form>
 
+        <!-- La clave se mantiene visible porque este acceso es sólo una demostración. -->
         <p class="form-help">Clave demo: <strong>demo123</strong></p>
 
         <p class="form-help">
           ¿Cliente nuevo?
+          <!-- Este botón permitirá cambiar a la vista de registro. -->
           <button type="button" class="link-button" data-view="registro">
             Crear una cuenta
           </button>
@@ -157,7 +175,10 @@
         <p class="eyebrow">Nuevo cliente</p>
         <h1>Crear una cuenta</h1>
 
-        <!-- El registro será simulado y no enviará datos a una base real. -->
+        <!--
+          El registro será simulado para la EP1 y no enviará
+          información a una base de datos real.
+        -->
         <form id="register-form" novalidate>
           <label for="register-name">Nombre completo</label>
           <input id="register-name" required />
@@ -168,6 +189,7 @@
           <label for="register-password">Contraseña</label>
           <input id="register-password" type="password" minlength="6" required />
 
+          <!-- Aquí se mostrará el resultado de la validación y del registro simulado. -->
           <p id="register-message" class="form-message" role="status" hidden></p>
 
           <button class="button button-primary full" type="submit">Registrarme</button>
@@ -182,19 +204,28 @@
         <h1>Mi cuenta</h1>
       </div>
 
-      <!-- JavaScript mostrará aquí el usuario y su historial simulado. -->
+      <!--
+        Este espacio comienza vacío porque JavaScript mostrará aquí
+        el usuario conectado y su historial de pedidos simulado.
+      -->
       <div id="account-content" class="account-grid"></div>
     </section>
   </main>
 
-  <!-- Información general del proyecto. -->
+  <!--
+    El footer corresponde a la parte final del sitio y contiene
+    la información general del proyecto.
+  -->
   <footer class="site-footer">
     <strong>Ferretería Los Maestros</strong>
     <span>Proyecto académico DSY1104 · EP1 Frontend</span>
     <span>La Serena, Región de Coquimbo</span>
   </footer>
 
-  <!-- La lógica general y las validaciones se mantienen en archivos separados. -->
+  <!--
+    La lógica general y las validaciones se mantienen en archivos separados.
+    Los scripts se cargan al final para procesar primero la estructura HTML.
+  -->
   <script src="js/app.js"></script>
   <script src="js/validaciones.js"></script>
 </body>
