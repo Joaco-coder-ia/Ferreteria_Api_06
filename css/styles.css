@@ -52,9 +52,8 @@ a {
 }
 
 
-/* -------------------------------------------------------------------------- */
+
 /* Cabecera y navegacion principal                                             */
-/* -------------------------------------------------------------------------- */
 
 
 /* La cabecera queda arriba para que el menu siga disponible al bajar. */
@@ -163,9 +162,8 @@ a {
 }
 
 
-/* -------------------------------------------------------------------------- */
+
 /* Inicio y presentacion principal                                             */
-/* -------------------------------------------------------------------------- */
 
 
 /* El inicio ocupa un fondo oscuro para separar la presentacion del contenido. */
@@ -349,9 +347,7 @@ button:disabled {
 }
 
 
-/* -------------------------------------------------------------------------- */
 /* Secciones y tarjetas generales                                             */
-/* -------------------------------------------------------------------------- */
 
 
 /* Todas las secciones mantienen el mismo ancho y espacio interior. */
@@ -433,9 +429,7 @@ button:disabled {
 }
 
 
-/* -------------------------------------------------------------------------- */
 /* Formularios, buscador y filtros                                             */
-/* -------------------------------------------------------------------------- */
 
 
 /* Los filtros se ordenan primero hacia abajo para que entren en un celular. */
@@ -501,9 +495,8 @@ button:disabled {
 }
 
 
-/* -------------------------------------------------------------------------- */
+
 /* Catalogo y detalle de productos                                             */
-/* -------------------------------------------------------------------------- */
 
 
 /* auto-fit crea las columnas que caben y minmax evita tarjetas muy angostas. */
@@ -611,9 +604,7 @@ button:disabled {
 }
 
 
-/* -------------------------------------------------------------------------- */
 /* Carrito y resumen del pedido                                                */
-/* -------------------------------------------------------------------------- */
 
 
 /* En pantallas chicas el resumen se muestra debajo de los productos. */
@@ -700,9 +691,7 @@ button:disabled {
 }
 
 
-/* -------------------------------------------------------------------------- */
 /* Acceso, registro, contacto y cuenta                                         */
-/* -------------------------------------------------------------------------- */
 
 
 /* Centramos los formularios y evitamos que se vuelvan demasiado anchos. */
@@ -807,9 +796,7 @@ form.auth-card {
 }
 
 
-/* -------------------------------------------------------------------------- */
 /* Pie de pagina                                                               */
-/* -------------------------------------------------------------------------- */
 
 
 /* El footer cierra todas las paginas con la informacion general. */
@@ -832,9 +819,7 @@ form.auth-card {
 }
 
 
-/* -------------------------------------------------------------------------- */
 /* Diseño adaptable                                                            */
-/* -------------------------------------------------------------------------- */
 
 
 /* Desde 600px usamos columnas porque ya tenemos mas espacio disponible. */
