@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ingreso a Ferretería Los Maestros" />
+  <title>Ingreso | Ferretería Los Maestros</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/herramientas.svg" type="image/svg+xml" />
+</head>
+
+<body data-page="acceso">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Volver al inicio">
+      <span class="brand-mark" aria-hidden="true">⌂</span>
+      <span><strong>Los Maestros</strong><small>Ferretería y construcción</small></span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      ☰ <span>Menú</span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Catálogo</a>
+      <a href="carrito.html">Carrito</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="cuenta.html">Mi cuenta</a>
+      <a href="ingreso.html" aria-current="page">Ingreso</a>
+    </nav>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <!-- Página independiente para iniciar sesión. -->
+    <section id="view-acceso" class="view content-section narrow">
+      <div class="auth-card">
+        <p class="eyebrow">Acceso de demostración</p>
+        <h1>Iniciar sesión</h1>
+        <p>Selecciona un perfil para revisar el flujo visual.</p>
+
+        <div class="demo-users">
+          <button type="button" data-demo="admin">Administrador</button>
+          <button type="button" data-demo="vendedor">Vendedor</button>
+          <button type="button" data-demo="cliente">Contratista demo</button>
+        </div>
+
+        <form id="login-form" novalidate>
+          <label for="login-email">Correo electrónico</label>
+          <input id="login-email" type="email" maxlength="100" required />
+          <label for="login-password">Contraseña</label>
+          <input id="login-password" type="password" required />
+          <p id="login-error" class="form-error" role="alert" hidden></p>
+          <button class="button button-primary full" type="submit">Entrar</button>
+        </form>
+
+        <p class="form-help">Clave demo: <strong>demo123</strong></p>
+        <p class="form-help">¿Cliente nuevo? <a href="registro.html">Crear una cuenta</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Ferretería Los Maestros</strong>
+    <span>Proyecto académico DSY1104 · EP1 Frontend</span>
+    <span>La Serena, Región de Coquimbo</span>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/validaciones.js"></script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-/* Aqui dejamos los colores principales para no repetirlos en todo el archivo. */
+/* Colores generales del proyecto. */
 :root {
   --ink: #153b35;
   --deep: #0e302b;
@@ -17,13 +17,11 @@
 }
 
 
-/* Esto hace que padding y border formen parte del tamano total. */
 * {
   box-sizing: border-box;
 }
 
 
-/* Quitamos el margen automatico y dejamos un ancho minimo para celulares. */
 body {
   margin: 0;
   min-width: 320px;
@@ -32,20 +30,17 @@ body {
 }
 
 
-/* Los enlaces mantienen el color de la seccion donde se encuentran. */
 a {
   color: inherit;
 }
 
 
-/* Dejamos una señal visible cuando se navega ocupando el teclado. */
 :focus-visible {
   outline: 3px solid var(--coral);
   outline-offset: 3px;
 }
 
 
-/* JavaScript utiliza hidden para decidir que vista corresponde mostrar. */
 .view[hidden],
 [data-home-only][hidden] {
   display: none;
@@ -53,10 +48,7 @@ a {
 
 
 
-/* Cabecera y navegacion principal                                             */
-
-
-/* La cabecera queda arriba para que el menu siga disponible al bajar. */
+/* Cabecera y navegación. */
 .site-header {
   position: sticky;
   top: 0;
@@ -74,7 +66,6 @@ a {
 }
 
 
-/* La marca junta el icono con el nombre de la ferreteria. */
 .brand {
   display: flex;
   align-items: center;
@@ -83,7 +74,6 @@ a {
 }
 
 
-/* Con grid centramos el simbolo de la casa dentro del cuadrado. */
 .brand-mark {
   display: grid;
   place-items: center;
@@ -98,14 +88,12 @@ a {
 }
 
 
-/* Separamos el nombre principal de su texto secundario. */
 .brand strong,
 .brand small {
   display: block;
 }
 
 
-/* El texto secundario se deja mas chico para crear jerarquia. */
 .brand small {
   margin-top: 3px;
   color: #cbd9d2;
@@ -113,7 +101,6 @@ a {
 }
 
 
-/* En celulares el menu comienza oculto y se abre con JavaScript. */
 .main-nav {
   position: absolute;
   top: 72px;
@@ -128,28 +115,24 @@ a {
 }
 
 
-/* app.js agrega is-open cuando apretamos el boton del menu movil. */
 .main-nav.is-open {
   display: grid;
   gap: 14px;
 }
 
 
-/* Quitamos el subrayado para que los enlaces se vean como opciones del menu. */
 .main-nav a {
   text-decoration: none;
   font-size: 14px;
 }
 
 
-/* Esta linea indica visualmente la pagina donde estamos parados. */
 .main-nav a[aria-current='page'] {
   color: var(--yellow);
   font-weight: 700;
 }
 
 
-/* Este boton solamente se necesita mientras el menu completo no cabe. */
 .menu-button {
   padding: 10px 12px;
 
@@ -163,10 +146,7 @@ a {
 
 
 
-/* Inicio y presentacion principal                                             */
-
-
-/* El inicio ocupa un fondo oscuro para separar la presentacion del contenido. */
+/* Página de inicio. */
 .hero-view {
   display: grid;
   gap: 30px;
@@ -182,7 +162,6 @@ a {
 }
 
 
-/* Los textos eyebrow funcionan como una etiqueta antes de cada titulo. */
 .eyebrow {
   color: var(--coral);
   font-size: 12px;
@@ -192,13 +171,11 @@ a {
 }
 
 
-/* Dentro del bloque oscuro usamos amarillo para tener mejor contraste. */
 .hero-view .eyebrow {
   color: var(--yellow);
 }
 
 
-/* Todos los titulos ocupan una altura parecida y un margen consistente. */
 h1,
 h2,
 h3 {
@@ -207,14 +184,12 @@ h3 {
 }
 
 
-/* clamp adapta el titulo sin dejar que quede demasiado chico o gigante. */
 .hero-copy h1 {
   max-width: 850px;
   font-size: clamp(40px, 10vw, 76px);
 }
 
 
-/* Limitamos el ancho del parrafo para que sea mas comodo leerlo. */
 .hero-copy > p:not(.eyebrow) {
   max-width: 680px;
   color: #d8e4de;
@@ -223,7 +198,6 @@ h3 {
 }
 
 
-/* Esta fila acomoda juntos los botones principales y permite que bajen de linea. */
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -232,7 +206,6 @@ h3 {
 }
 
 
-/* Creamos una base que sirve para todos los botones grandes. */
 .button {
   display: inline-block;
   padding: 14px 18px;
@@ -247,14 +220,12 @@ h3 {
 }
 
 
-/* El boton amarillo representa la accion principal. */
 .button-primary {
   background: var(--yellow);
   color: var(--deep);
 }
 
 
-/* Este segundo boton se usa sobre fondos oscuros. */
 .button-outline {
   border: 1px solid #a4c0b5;
   background: transparent;
@@ -262,27 +233,23 @@ h3 {
 }
 
 
-/* Dentro de Mi cuenta cambiamos el color porque la tarjeta tiene fondo claro. */
 .account-button {
   border-color: var(--green);
   color: var(--green);
 }
 
 
-/* full hace que el boton ocupe todo el espacio de su contenedor. */
 .full {
   width: 100%;
 }
 
 
-/* Los botones desactivados indican que un producto no se puede agregar. */
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 
-/* Esta tarjeta resume la cantidad de productos, categorias y stock. */
 .hero-summary {
   max-width: 350px;
   padding: 25px;
@@ -294,20 +261,17 @@ button:disabled {
 }
 
 
-/* Quitamos el margen superior del primer texto del resumen. */
 .hero-summary p {
   margin: 0 0 15px;
 }
 
 
-/* El total se muestra grande porque es el dato mas importante. */
 .hero-summary > strong {
   display: block;
   font-size: 72px;
 }
 
 
-/* El texto que acompaña al total usa un tono mas suave. */
 .hero-summary > span {
   display: block;
   color: #d6e2dc;
@@ -315,7 +279,6 @@ button:disabled {
 }
 
 
-/* Dividimos las otras estadisticas en dos columnas iguales. */
 .summary-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -327,30 +290,24 @@ button:disabled {
 }
 
 
-/* Cada numero y su etiqueta ocupan su propia linea. */
 .summary-grid b,
 .summary-grid small {
   display: block;
 }
 
 
-/* Damos mas importancia visual a los numeros. */
 .summary-grid b {
   font-size: 24px;
 }
 
 
-/* Las etiquetas se ven mas suaves que los numeros. */
 .summary-grid small {
   margin-top: 4px;
   color: #c8d8d0;
 }
 
 
-/* Secciones y tarjetas generales                                             */
-
-
-/* Todas las secciones mantienen el mismo ancho y espacio interior. */
+/* Secciones y tarjetas. */
 .content-section {
   max-width: 1200px;
   margin: auto;
@@ -358,20 +315,17 @@ button:disabled {
 }
 
 
-/* La introduccion puede ocupar todo el ancho del fondo. */
 .intro-section {
   max-width: none;
 }
 
 
-/* Este titulo tambien cambia suavemente segun el espacio disponible. */
 .intro-section h2 {
   max-width: 680px;
   font-size: clamp(30px, 5vw, 48px);
 }
 
 
-/* Las tres caracteristicas comienzan en una columna para celulares. */
 .feature-grid {
   display: grid;
   gap: 14px;
@@ -379,7 +333,6 @@ button:disabled {
 }
 
 
-/* Reutilizamos la misma base para las tarjetas de todo el sitio. */
 .feature-grid article,
 .product-card,
 .detail-card,
@@ -394,13 +347,11 @@ button:disabled {
 }
 
 
-/* Los numeros de las caracteristicas ocupan el color coral. */
 .feature-grid b {
   color: var(--coral);
 }
 
 
-/* Usamos un color secundario para los textos descriptivos. */
 .feature-grid p,
 .product-card p,
 .detail-card p,
@@ -411,28 +362,22 @@ button:disabled {
 }
 
 
-/* Dejamos espacio entre el encabezado y el contenido de cada seccion. */
 .section-heading {
   margin-bottom: 28px;
 }
 
 
-/* El titulo interior crece dependiendo de la pantalla. */
 .section-heading h1 {
   font-size: clamp(34px, 6vw, 62px);
 }
 
 
-/* El ultimo parrafo del encabezado funciona como explicacion secundaria. */
 .section-heading > p:last-child {
   color: var(--muted);
 }
 
 
-/* Formularios, buscador y filtros                                             */
-
-
-/* Los filtros se ordenan primero hacia abajo para que entren en un celular. */
+/* Formularios y filtros. */
 .filter-bar {
   display: grid;
   gap: 15px;
@@ -445,7 +390,6 @@ button:disabled {
 }
 
 
-/* Las etiquetas se dejan arriba de sus controles para entender cada campo. */
 .filter-bar label,
 .auth-card label {
   display: block;
@@ -455,7 +399,6 @@ button:disabled {
 }
 
 
-/* Todos los campos comparten el mismo borde, espacio y tipo de letra. */
 .filter-bar input,
 .filter-bar select,
 .auth-card input,
@@ -473,14 +416,12 @@ button:disabled {
 }
 
 
-/* El comentario puede crecer hacia abajo pero no romper el ancho del formulario. */
 .auth-card textarea {
   min-height: 130px;
   resize: vertical;
 }
 
 
-/* Acomodamos el checkbox al lado de su explicacion. */
 .check-label {
   display: flex !important;
   align-items: center;
@@ -489,17 +430,13 @@ button:disabled {
 }
 
 
-/* Evitamos que el checkbox tome el ancho completo de los otros controles. */
 .check-label input {
   width: auto;
 }
 
 
 
-/* Catalogo y detalle de productos                                             */
-
-
-/* auto-fit crea las columnas que caben y minmax evita tarjetas muy angostas. */
+/* Catálogo e imágenes. */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -507,7 +444,6 @@ button:disabled {
 }
 
 
-/* Usamos flex para mantener los botones alineados aunque cambie el nombre. */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -515,7 +451,32 @@ button:disabled {
 }
 
 
-/* La categoria aparece como una etiqueta pequeña sobre el nombre. */
+.product-image-frame {
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  margin: 0 0 18px;
+  overflow: hidden;
+
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  background: #eef1ec;
+}
+
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.detail-image-frame {
+  max-width: 520px;
+}
+
+
 .product-card .category,
 .detail-card .category {
   color: var(--coral);
@@ -525,14 +486,12 @@ button:disabled {
 }
 
 
-/* Damos un poco de separacion al nombre de cada producto. */
 .product-card h2 {
   margin-top: 10px;
   font-size: 20px;
 }
 
 
-/* margin-top auto empuja el precio hacia la parte baja de la tarjeta. */
 .product-card .price {
   margin-top: auto;
   color: var(--ink);
@@ -541,13 +500,11 @@ button:disabled {
 }
 
 
-/* El stock es informacion secundaria y por eso ocupa menos tamano. */
 .product-card .stock {
   font-size: 13px;
 }
 
 
-/* Los botones chicos se usan en las tarjetas del catalogo. */
 .small-button {
   padding: 11px;
 
@@ -562,7 +519,6 @@ button:disabled {
 }
 
 
-/* Estos botones parecen enlaces porque se ocupan para volver o cambiar de vista. */
 .text-button,
 .link-button {
   margin-bottom: 20px;
@@ -574,47 +530,40 @@ button:disabled {
 
   font: inherit;
   font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
 }
 
 
-/* Las vistas mas cortas no necesitan ocupar todo el ancho del catalogo. */
 .narrow {
   max-width: 700px;
 }
 
 
-/* El detalle separa sus datos con una grilla sencilla. */
 .detail-card {
   display: grid;
   gap: 18px;
 }
 
 
-/* El nombre se agranda porque es el contenido principal del detalle. */
 .detail-card h1 {
   font-size: 40px;
 }
 
 
-/* El precio del detalle debe destacar entre el resto de los datos. */
 .detail-price {
   font-size: 32px;
   font-weight: 700;
 }
 
 
-/* Carrito y resumen del pedido                                                */
-
-
-/* En pantallas chicas el resumen se muestra debajo de los productos. */
+/* Carrito. */
 .cart-layout {
   display: grid;
   gap: 20px;
 }
 
 
-/* Cada fila junta la informacion con su cantidad y subtotal. */
 .cart-item {
   display: flex;
   align-items: center;
@@ -624,13 +573,11 @@ button:disabled {
 }
 
 
-/* El nombre del producto no necesita el tamano de un titulo principal. */
 .cart-item h2 {
   font-size: 19px;
 }
 
 
-/* Las acciones se ordenan y dejan el subtotal sin cortes de linea. */
 .cart-item-actions {
   display: grid;
   justify-items: end;
@@ -638,31 +585,26 @@ button:disabled {
 }
 
 
-/* Evitamos que el valor del subtotal se separe en dos lineas. */
 .cart-item strong {
   white-space: nowrap;
 }
 
 
-/* La cantidad solo necesita espacio para unos pocos numeros. */
 .quantity-input {
   max-width: 75px;
 }
 
 
-/* El resumen mantiene solamente la altura que necesita su contenido. */
 .summary-card {
   height: max-content;
 }
 
 
-/* Bajamos el tamano del titulo dentro del resumen. */
 .summary-card h2 {
   font-size: 25px;
 }
 
 
-/* Separamos el texto Total de su valor usando los extremos de la fila. */
 .summary-total {
   display: flex;
   justify-content: space-between;
@@ -674,7 +616,6 @@ button:disabled {
 }
 
 
-/* Quitamos el estilo normal del fieldset para integrarlo en la tarjeta. */
 .summary-card fieldset {
   display: grid;
   gap: 10px;
@@ -685,23 +626,18 @@ button:disabled {
 }
 
 
-/* Las alternativas de entrega se dejan compactas. */
 .summary-card label {
   font-size: 14px;
 }
 
 
-/* Acceso, registro, contacto y cuenta                                         */
-
-
-/* Centramos los formularios y evitamos que se vuelvan demasiado anchos. */
+/* Acceso, registro y contacto. */
 .auth-card {
   max-width: 540px;
   margin: auto;
 }
 
 
-/* Los tres usuarios de prueba se muestran en columnas iguales. */
 .demo-users {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -710,7 +646,6 @@ button:disabled {
 }
 
 
-/* Estos botones tienen menos importancia que el boton Entrar. */
 .demo-users button {
   padding: 10px 4px;
 
@@ -725,14 +660,12 @@ button:disabled {
 }
 
 
-/* validaciones.js agrega esta clase al perfil demo que elegimos. */
 .demo-users button.is-selected {
   background: var(--green);
   color: #fff;
 }
 
 
-/* Dejamos un espacio parejo entre todos los campos del formulario. */
 .auth-card form,
 form.auth-card {
   display: grid;
@@ -740,14 +673,12 @@ form.auth-card {
 }
 
 
-/* Las ayudas explican datos de demostracion sin llamar tanto la atencion. */
 .form-help {
   color: var(--muted);
   font-size: 13px;
 }
 
 
-/* Los errores ocupan rojo para diferenciarlos de un resultado correcto. */
 .form-error,
 .form-message.is-error {
   color: var(--error);
@@ -755,7 +686,6 @@ form.auth-card {
 }
 
 
-/* Los mensajes correctos aparecen dentro de una caja verde clara. */
 .form-message {
   padding: 10px;
 
@@ -765,26 +695,237 @@ form.auth-card {
 }
 
 
-/* Al existir un error cambiamos tambien el fondo del mensaje. */
 .form-message.is-error {
   background: #fbe9e6;
 }
 
 
-/* Las tarjetas de la cuenta comienzan una debajo de la otra. */
+/* Paneles de usuario. */
 .account-grid {
+  display: block;
+}
+
+
+.account-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--deep);
+  color: #fff;
+}
+
+
+.account-profile h2,
+.account-profile p {
+  margin-bottom: 6px;
+}
+
+
+.account-profile .eyebrow {
+  color: var(--yellow);
+}
+
+
+.role-dashboard {
+  margin-top: 28px;
+}
+
+
+.dashboard-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+
+.dashboard-heading h2 {
+  margin-bottom: 0;
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+
+.role-chip {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+.role-admin {
+  background: #fee6a8;
+  color: #674600;
+}
+
+
+.role-seller {
+  background: #d8ede6;
+  color: #174f42;
+}
+
+
+.role-customer {
+  background: #e2e9f5;
+  color: #294c7a;
+}
+
+
+.metric-grid,
+.dashboard-grid {
   display: grid;
-  gap: 16px;
+  gap: 14px;
 }
 
 
-/* Los nombres dentro de la cuenta usan un titulo mediano. */
-.account-card h2 {
-  font-size: 20px;
+.metric-grid {
+  margin-bottom: 14px;
 }
 
 
-/* Esta caja se ocupa cuando todavia no tenemos productos o resultados. */
+.metric-card,
+.dashboard-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+
+.metric-card span,
+.metric-card small {
+  display: block;
+  color: var(--muted);
+}
+
+
+.metric-card strong {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+
+.dashboard-card h3 {
+  font-size: 22px;
+}
+
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+
+th,
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+
+th {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+
+.data-list,
+.permission-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 20px;
+  padding-left: 20px;
+}
+
+
+.data-list {
+  padding: 0;
+  list-style: none;
+}
+
+
+.data-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+}
+
+
+.data-list span {
+  color: var(--muted);
+  text-align: right;
+}
+
+
+.message-list {
+  display: grid;
+  gap: 12px;
+}
+
+
+.message-item {
+  padding: 14px;
+  border-radius: 10px;
+  background: #f1f3ee;
+}
+
+
+.message-item small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+
+.message-item p {
+  margin: 12px 0 0;
+}
+
+
+.empty-small {
+  color: var(--muted);
+}
+
+
+.action-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+.button-secondary {
+  background: var(--green);
+  color: #fff;
+}
+
+
+.button-light {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--green);
+}
+
+
 .empty {
   padding: 30px;
 
@@ -796,10 +937,7 @@ form.auth-card {
 }
 
 
-/* Pie de pagina                                                               */
-
-
-/* El footer cierra todas las paginas con la informacion general. */
+/* Pie de página. */
 .site-footer {
   display: grid;
   gap: 7px;
@@ -812,17 +950,13 @@ form.auth-card {
 }
 
 
-/* El nombre de la ferreteria destaca sobre los otros datos. */
 .site-footer strong {
   color: #fff;
   font-size: 17px;
 }
 
 
-/* Diseño adaptable                                                            */
-
-
-/* Desde 600px usamos columnas porque ya tenemos mas espacio disponible. */
+/* Diseño adaptable. */
 @media (min-width: 600px) {
   .hero-view {
     grid-template-columns: 1fr 330px;
@@ -842,13 +976,20 @@ form.auth-card {
     grid-template-columns: 1.5fr 1fr;
   }
 
-  .account-grid {
+  .metric-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-wide {
+    grid-column: 1 / -1;
   }
 }
 
 
-/* Desde 900px cambiamos el boton movil por la navegacion completa. */
 @media (min-width: 900px) {
   .menu-button {
     display: none;
@@ -874,10 +1015,17 @@ form.auth-card {
   .hero-copy h1 {
     font-size: 76px;
   }
+
+  .metric-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .metric-grid-customer {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 
-/* En celulares angostos dejamos las filas del carrito una debajo de otra. */
 @media (max-width: 480px) {
   .cart-item {
     align-items: flex-start;
@@ -891,5 +1039,11 @@ form.auth-card {
 
   .demo-users {
     grid-template-columns: 1fr;
+  }
+
+  .account-profile,
+  .dashboard-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

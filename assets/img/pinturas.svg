@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#eef5ef"/>
+  <path d="M0 145h1200" stroke="#f7b733" stroke-width="110"/>
+  <path d="M0 285h1200" stroke="#d86b4d" stroke-width="110"/>
+  <path d="M0 425h1200" stroke="#236b5b" stroke-width="110"/>
+  <g stroke="#153b35" stroke-width="22" stroke-linejoin="round">
+    <path d="M405 305h390l-40 340H445z" fill="#fffdf8"/>
+    <path d="M465 305v-70c0-55 45-100 100-100h175" fill="none"/>
+    <path d="M735 95h180v130H735z" fill="#f7b733"/>
+    <path d="M825 225v165" fill="none"/>
+  </g>
+  <text x="600" y="735" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">PINTURAS</text>
+</svg>

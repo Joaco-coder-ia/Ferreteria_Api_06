@@ -3,64 +3,45 @@
 
 <head>
   <meta charset="UTF-8" />
-
-  <!-- Permite que la página se adapte a celulares, tablets y computadores. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Esta descripción ayuda a identificar el contenido del sitio. -->
-  <meta name="description" content="Catálogo frontend de Ferretería Los Maestros" />
-
-  <title>Ferretería Los Maestros | EP1</title>
-
-  <!-- Conectamos el documento HTML con la hoja de estilos externa. -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="description" content="Inicio de Ferretería Los Maestros" />
+  <title>Inicio | Ferretería Los Maestros</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/herramientas.svg" type="image/svg+xml" />
 </head>
 
-<body>
-  <!-- Construimos aquí la estructura semántica principal del proyecto. -->
-  <!-- Encabezado y navegación principal del sitio. -->
+<body data-page="inicio">
+  <!-- Cabecera usada para navegar entre los archivos HTML. -->
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Volver al inicio">
       <span class="brand-mark" aria-hidden="true">⌂</span>
-
       <span>
         <strong>Los Maestros</strong>
         <small>Ferretería y construcción</small>
       </span>
     </a>
 
-    <!-- Este botón se utilizará principalmente en pantallas pequeñas. -->
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
-      ☰
-      <span>Menú</span>
+      ☰ <span>Menú</span>
     </button>
 
     <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="productos.html">Catálogo</a>
-      <a href="productos.html#carrito" data-view="carrito">Carrito</a>
+      <a href="carrito.html">Carrito</a>
       <a href="contacto.html">Contacto</a>
-      <a href="#cuenta" data-view="cuenta">Mi cuenta</a>
-      <a href="#acceso" data-view="acceso">Ingreso</a>
+      <a href="cuenta.html">Mi cuenta</a>
+      <a href="ingreso.html">Ingreso</a>
     </nav>
   </header>
 
-  <!--
-    Aquí comienza el contenido principal de nuestra aplicación.
-    JavaScript mostrará y ocultará las vistas que pertenecen a esta página.
-  -->
   <main id="app" tabindex="-1">
-    <!-- Vista de inicio. -->
+    <!-- Presentación principal del negocio. -->
     <section id="view-inicio" class="view hero-view">
       <div class="hero-copy">
         <p class="eyebrow">22 años apoyando a La Serena</p>
-
         <h1>Materiales listos cuando la obra los necesita.</h1>
-
-        <p>
-          Consulta disponibilidad, prepara tu pedido y elige retiro en tienda o
-          despacho.
-        </p>
+        <p>Consulta disponibilidad, prepara tu pedido y elige retiro en tienda o despacho.</p>
 
         <div class="button-row">
           <a class="button button-primary" href="productos.html">Ver catálogo</a>
@@ -68,11 +49,7 @@
         </div>
       </div>
 
-      <!--
-        Estos números se actualizarán desde JavaScript cuando carguemos
-        los productos almacenados en el archivo JSON.
-      -->
-      <!-- Usamos aside para mostrar información secundaria del catálogo. -->
+      <!-- JavaScript completa estas cifras con productos.json. -->
       <aside class="hero-summary" aria-label="Resumen del catálogo">
         <p>Catálogo de muestra</p>
         <strong id="hero-total">85</strong>
@@ -83,7 +60,6 @@
             <b id="hero-categorias">—</b>
             <small>Categorías</small>
           </div>
-
           <div>
             <b id="hero-stock">—</b>
             <small>Con stock</small>
@@ -92,11 +68,7 @@
       </aside>
     </section>
 
-    <!--
-      data-home-only indica que este contenido pertenece únicamente
-      a la página de inicio.
-    -->
-    <section class="content-section intro-section" data-home-only>
+    <section class="content-section intro-section">
       <p class="eyebrow">Una consulta sin llamadas</p>
       <h2>Todo lo esencial para comenzar la compra</h2>
 
@@ -106,13 +78,11 @@
           <h3>Stock visible</h3>
           <p>Disponibilidad y unidad de venta en cada ficha.</p>
         </article>
-
         <article>
           <b>02</b>
           <h3>Pedido trazable</h3>
-          <p>Carrito, entrega y confirmación en una sola vista.</p>
+          <p>Carrito, entrega y confirmación en una sola página.</p>
         </article>
-
         <article>
           <b>03</b>
           <h3>Datos claros</h3>
@@ -120,115 +90,16 @@
         </article>
       </div>
     </section>
-
-    <!-- Vista para iniciar sesión. -->
-    <section id="view-acceso" class="view content-section narrow" hidden>
-      <div class="auth-card">
-        <p class="eyebrow">Acceso de demostración</p>
-        <h1>Iniciar sesión</h1>
-
-        <p>
-          Selecciona un perfil para revisar el flujo visual. Los datos se guardan
-          sólo en este navegador.
-        </p>
-
-        <!--
-          Estos perfiles de prueba permitirán que JavaScript complete
-          automáticamente los datos del formulario de demostración.
-        -->
-        <div class="demo-users">
-          <button type="button" data-demo="admin">Administrador</button>
-          <button type="button" data-demo="vendedor">Vendedor</button>
-          <button type="button" data-demo="cliente">Contratista demo</button>
-        </div>
-
-        <!-- Formulario utilizado para simular el inicio de sesión. -->
-        <form id="login-form" novalidate>
-          <label for="login-email">Correo electrónico</label>
-          <input id="login-email" type="email" maxlength="100" required />
-
-          <label for="login-password">Contraseña</label>
-          <input id="login-password" type="password" required />
-
-          <!-- Este mensaje aparecerá cuando ocurra un problema de validación. -->
-          <p id="login-error" class="form-error" role="alert" hidden></p>
-
-          <button class="button button-primary full" type="submit">Entrar</button>
-        </form>
-
-        <!-- La clave se mantiene visible porque este acceso es sólo una demostración. -->
-        <p class="form-help">Clave demo: <strong>demo123</strong></p>
-
-        <p class="form-help">
-          ¿Cliente nuevo?
-          <!-- Este botón permitirá cambiar a la vista de registro. -->
-          <button type="button" class="link-button" data-view="registro">
-            Crear una cuenta
-          </button>
-        </p>
-      </div>
-    </section>
-
-    <!-- Vista para registrar un nuevo usuario. -->
-    <section id="view-registro" class="view content-section narrow" hidden>
-      <div class="auth-card">
-        <p class="eyebrow">Nuevo cliente</p>
-        <h1>Crear una cuenta</h1>
-
-        <!--
-          El registro será simulado para la EP1 y no enviará
-          información a una base de datos real.
-        -->
-        <form id="register-form" novalidate>
-          <label for="register-name">Nombre completo</label>
-          <input id="register-name" required />
-
-          <label for="register-email">Correo electrónico</label>
-          <input id="register-email" type="email" required />
-
-          <label for="register-password">Contraseña</label>
-          <input id="register-password" type="password" minlength="6" required />
-
-          <!-- Aquí se mostrará el resultado de la validación y del registro simulado. -->
-          <p id="register-message" class="form-message" role="status" hidden></p>
-
-          <button class="button button-primary full" type="submit">Registrarme</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Vista de la cuenta del usuario. -->
-    <section id="view-cuenta" class="view content-section" hidden>
-      <div class="section-heading">
-        <p class="eyebrow">Perfil y pedidos</p>
-        <h1>Mi cuenta</h1>
-      </div>
-
-      <!--
-        Este espacio comienza vacío porque JavaScript mostrará aquí
-        el usuario conectado y su historial de pedidos simulado.
-      -->
-      <div id="account-content" class="account-grid"></div>
-    </section>
   </main>
 
-  <!--
-    El footer corresponde a la parte final del sitio y contiene
-    la información general del proyecto.
-  -->
   <footer class="site-footer">
     <strong>Ferretería Los Maestros</strong>
     <span>Proyecto académico DSY1104 · EP1 Frontend</span>
     <span>La Serena, Región de Coquimbo</span>
   </footer>
 
-  <!--
-    La lógica general, el catálogo y las validaciones se mantienen separados.
-    Los scripts se cargan al final para procesar primero la estructura HTML.
-  -->
-  <script src="js/app.js"></script>
-  <script src="js/catalogo.js"></script>
-  <script src="js/validaciones.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/catalogo.js"></script>
 </body>
 
 </html>

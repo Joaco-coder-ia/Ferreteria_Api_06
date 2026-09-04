@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contacto de Ferretería Los Maestros" />
-  <title>Contacto | Ferretería Los Maestros</title>
+  <meta name="description" content="Registro en Ferretería Los Maestros" />
+  <title>Registro | Ferretería Los Maestros</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" href="assets/img/herramientas.svg" type="image/svg+xml" />
 </head>
 
-<body data-page="contacto">
+<body data-page="registro">
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Volver al inicio">
       <span class="brand-mark" aria-hidden="true">⌂</span>
@@ -23,31 +23,32 @@
       <a href="index.html">Inicio</a>
       <a href="productos.html">Catálogo</a>
       <a href="carrito.html">Carrito</a>
-      <a href="contacto.html" aria-current="page">Contacto</a>
+      <a href="contacto.html">Contacto</a>
       <a href="cuenta.html">Mi cuenta</a>
-      <a href="ingreso.html">Ingreso</a>
+      <a href="ingreso.html" aria-current="page">Ingreso</a>
     </nav>
   </header>
 
   <main id="app" tabindex="-1">
-    <!-- Este formulario registra consultas simuladas. -->
-    <section id="view-contacto" class="view content-section narrow">
-      <div class="section-heading">
-        <p class="eyebrow">Estamos para ayudarte</p>
-        <h1>Contacto</h1>
-        <p>Completa el formulario para registrar tu consulta.</p>
-      </div>
+    <!-- Página independiente para registrar un usuario simulado. -->
+    <section id="view-registro" class="view content-section narrow">
+      <div class="auth-card">
+        <p class="eyebrow">Nuevo cliente</p>
+        <h1>Crear una cuenta</h1>
 
-      <form id="contact-form" class="auth-card" novalidate>
-        <label for="contact-name">Nombre completo</label>
-        <input id="contact-name" name="nombre" type="text" maxlength="100" required />
-        <label for="contact-email">Correo electrónico</label>
-        <input id="contact-email" name="correo" type="email" maxlength="100" required />
-        <label for="contact-message">Comentario</label>
-        <textarea id="contact-message" name="comentario" maxlength="500" required></textarea>
-        <p id="contact-message-status" class="form-message" role="status" hidden></p>
-        <button class="button button-primary full" type="submit">Enviar consulta</button>
-      </form>
+        <form id="register-form" novalidate>
+          <label for="register-name">Nombre completo</label>
+          <input id="register-name" required />
+          <label for="register-email">Correo electrónico</label>
+          <input id="register-email" type="email" required />
+          <label for="register-password">Contraseña</label>
+          <input id="register-password" type="password" minlength="6" required />
+          <p id="register-message" class="form-message" role="status" hidden></p>
+          <button class="button button-primary full" type="submit">Registrarme</button>
+        </form>
+
+        <p class="form-help">¿Ya tienes una cuenta? <a href="ingreso.html">Iniciar sesión</a></p>
+      </div>
     </section>
   </main>
 

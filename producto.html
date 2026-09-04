@@ -4,14 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Catálogo de productos de Ferretería Los Maestros" />
-  <title>Catálogo | Ferretería Los Maestros</title>
+  <meta name="description" content="Detalle de producto de Ferretería Los Maestros" />
+  <title>Detalle del producto | Ferretería Los Maestros</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" href="assets/img/herramientas.svg" type="image/svg+xml" />
 </head>
 
-<body data-page="catalogo">
-  <!-- Cabecera usada para navegar entre los archivos HTML. -->
+<body data-page="detalle">
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Volver al inicio">
       <span class="brand-mark" aria-hidden="true">⌂</span>
@@ -31,31 +30,10 @@
   </header>
 
   <main id="app" tabindex="-1">
-    <!-- Esta página contiene solamente el catálogo. -->
-    <section id="view-catalogo" class="view content-section">
-      <div class="section-heading">
-        <p class="eyebrow">Catálogo actualizado</p>
-        <h1>Encuentra lo que necesites</h1>
-        <p id="catalog-status">Cargando productos...</p>
-      </div>
-
-      <!-- Los filtros actualizan las tarjetas mediante JavaScript. -->
-      <form id="filter-form" class="filter-bar" novalidate>
-        <div>
-          <label for="search">Buscar por nombre, marca o código</label>
-          <input id="search" type="search" placeholder="Ej.: taladro o HE001" />
-        </div>
-        <div>
-          <label for="category">Categoría</label>
-          <select id="category"><option>Todas</option></select>
-        </div>
-        <label class="check-label">
-          <input id="stock-only" type="checkbox" />
-          Sólo con stock
-        </label>
-      </form>
-
-      <div id="product-grid" class="product-grid"></div>
+    <!-- JavaScript carga aquí el producto indicado en la dirección. -->
+    <section id="view-detalle" class="view content-section narrow">
+      <a class="text-button" href="productos.html">← Volver al catálogo</a>
+      <div id="product-detail" class="detail-card"></div>
     </section>
   </main>
 

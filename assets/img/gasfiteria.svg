@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#eaf4f5"/>
+  <path d="M180 180h400v165h230v275" fill="none" stroke="#236b5b" stroke-width="100" stroke-linejoin="round"/>
+  <path d="M180 180h400v165h230v275" fill="none" stroke="#153b35" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M810 470c0 0-125 135-125 220a125 125 0 0 0 250 0c0-85-125-220-125-220z" fill="#6dbbd1" stroke="#153b35" stroke-width="18"/>
+  <circle cx="180" cy="180" r="72" fill="#f7b733" stroke="#153b35" stroke-width="18"/>
+  <text x="600" y="735" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">GASFITERÍA</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#fff6d8"/>
+  <circle cx="600" cy="320" r="220" fill="#f7b733" stroke="#153b35" stroke-width="22"/>
+  <path d="M505 500h190v105H505z" fill="#d9ddd5" stroke="#153b35" stroke-width="22"/>
+  <path d="M530 605h140v65H530z" fill="#236b5b" stroke="#153b35" stroke-width="22"/>
+  <path d="m640 135-115 205h105l-70 165 170-235H620z" fill="#fffdf8" stroke="#153b35" stroke-width="15" stroke-linejoin="round"/>
+  <g stroke="#d86b4d" stroke-width="22" stroke-linecap="round">
+    <path d="M300 155 230 85"/><path d="m900 155 70-70"/><path d="M235 340H130"/><path d="M965 340h105"/>
+  </g>
+  <text x="600" y="755" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">ELECTRICIDAD</text>
+</svg>

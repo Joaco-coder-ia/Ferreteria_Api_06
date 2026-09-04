@@ -41,28 +41,48 @@ El proyecto contempla las siguientes funcionalidades:
 Ferreteria_Api_06/
 ├── index.html
 ├── productos.html
+├── producto.html
+├── carrito.html
 ├── contacto.html
-├── css/
-│   └── styles.css
-├── js/
-│   ├── app.js
-│   ├── catalogo.js
-│   └── validaciones.js
+├── ingreso.html
+├── registro.html
+├── cuenta.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── catalogo.js
+│   │   └── validaciones.js
+│   └── img/
+│       ├── construccion.svg
+│       ├── electricidad.svg
+│       ├── gasfiteria.svg
+│       ├── herramientas.svg
+│       ├── jardin.svg
+│       ├── madera.svg
+│       ├── pinturas.svg
+│       ├── seguridad.svg
+│       └── tornilleria.svg
 ├── data/
 │   └── productos.json
-├── assets/
 └── README.md
 ```
 
-- `index.html`: contiene la página de inicio y las vistas de acceso y cuenta.
-- `productos.html`: contiene el catálogo, el detalle y el carrito.
+- `index.html`: contiene solamente la página de inicio.
+- `productos.html`: contiene el catálogo y sus filtros.
+- `producto.html`: muestra el detalle del producto seleccionado.
+- `carrito.html`: muestra los productos agregados y confirma pedidos simulados.
 - `contacto.html`: contiene el formulario de contacto.
-- `css/styles.css`: reúne los estilos personalizados y las reglas responsive.
-- `js/app.js`: contiene la lógica general y la navegación compartida.
-- `js/catalogo.js`: contiene la lógica relacionada con los productos.
-- `js/validaciones.js`: contiene las validaciones de los formularios.
+- `ingreso.html`: contiene el formulario de inicio de sesión.
+- `registro.html`: contiene el formulario de registro simulado.
+- `cuenta.html`: muestra el perfil y el panel correspondiente a cada rol.
+- `assets/css/styles.css`: reúne los estilos y las reglas responsive.
+- `assets/js/app.js`: contiene la navegación y los paneles de usuario.
+- `assets/js/catalogo.js`: contiene la lógica de productos y carrito.
+- `assets/js/validaciones.js`: contiene las validaciones de formularios.
+- `assets/img/`: contiene las imágenes locales del catálogo.
 - `data/productos.json`: almacena los datos locales de los productos.
-- `assets/`: almacena imágenes y otros recursos visuales.
 
 ## Ejecución local
 

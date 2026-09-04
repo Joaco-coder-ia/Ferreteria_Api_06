@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f4ead7"/>
+  <circle cx="980" cy="150" r="95" fill="#f7b733"/>
+  <path d="M120 650h960" stroke="#153b35" stroke-width="28" stroke-linecap="round"/>
+  <g fill="#d86b4d" stroke="#153b35" stroke-width="16">
+    <rect x="190" y="430" width="250" height="150" rx="14"/>
+    <rect x="475" y="430" width="250" height="150" rx="14"/>
+    <rect x="760" y="430" width="250" height="150" rx="14"/>
+    <rect x="330" y="245" width="250" height="150" rx="14"/>
+    <rect x="615" y="245" width="250" height="150" rx="14"/>
+  </g>
+  <text x="600" y="735" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">CONSTRUCCIÓN</text>
+</svg>

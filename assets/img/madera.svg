@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f5ede1"/>
+  <g stroke="#153b35" stroke-width="18">
+    <rect x="155" y="175" width="890" height="150" rx="22" fill="#c98f52"/>
+    <rect x="155" y="350" width="890" height="150" rx="22" fill="#dfab68"/>
+    <rect x="155" y="525" width="890" height="110" rx="22" fill="#bc7b3f"/>
+  </g>
+  <g fill="none" stroke="#8b552e" stroke-width="14">
+    <ellipse cx="300" cy="250" rx="75" ry="42"/><ellipse cx="765" cy="425" rx="95" ry="48"/><ellipse cx="500" cy="580" rx="70" ry="30"/>
+    <path d="M380 250h520M230 425h390M860 425h110M190 580h210M600 580h390"/>
+  </g>
+  <text x="600" y="735" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">MADERA</text>
+</svg>

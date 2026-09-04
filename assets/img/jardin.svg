@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#edf6e9"/>
+  <circle cx="190" cy="150" r="90" fill="#f7b733"/>
+  <path d="M180 650h840" stroke="#153b35" stroke-width="25" stroke-linecap="round"/>
+  <g stroke="#153b35" stroke-width="18" stroke-linejoin="round">
+    <path d="M590 650V260"/>
+    <path d="M590 390c-170 15-245-65-250-190 155-20 250 65 250 190z" fill="#65a864"/>
+    <path d="M590 500c170 15 245-65 250-190-155-20-250 65-250 190z" fill="#236b5b"/>
+    <path d="m850 610 115-315"/>
+    <path d="m900 295 115 40-95 170-95-35z" fill="#d86b4d"/>
+  </g>
+  <text x="600" y="735" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">JARDÍN</text>
+</svg>

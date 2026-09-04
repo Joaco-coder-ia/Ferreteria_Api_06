@@ -1,8 +1,7 @@
-// En este archivo revisamos los formularios antes de aceptar sus datos.
-// Asi las validaciones no quedan mezcladas con el catalogo o la navegacion.
+// Este archivo valida acceso, registro y contacto.
 
 
-// Recuperamos el estado y las funciones generales que vienen desde app.js.
+// Funciones compartidas desde app.js.
 const validacionesSistema = window.ferreteria;
 const validacionesUsuarios = validacionesSistema.usuariosDemo;
 const validacionesEstado = validacionesSistema.estadoAplicacion;
@@ -11,14 +10,13 @@ const validacionesGuardar = validacionesSistema.guardarEstado;
 const validacionesMostrarVista = validacionesSistema.mostrarVista;
 
 
-// Esta expresion comprueba una forma basica de correo: texto@dominio.cl.
-// No envia ningun dato, solamente lo revisa dentro del navegador.
+// Comprueba una forma básica de correo.
 function correoEsValido(correo) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
 }
 
 
-// Esta funcion muestra los mensajes de exito o error debajo de cada formulario.
+// Muestra mensajes de éxito o error.
 function mostrarMensajeFormulario(elemento, mensaje, esError = false) {
   if (!elemento) {
     return;
@@ -30,7 +28,7 @@ function mostrarMensajeFormulario(elemento, mensaje, esError = false) {
 }
 
 
-// Esto rellena el correo y la clave cuando elegimos un perfil de demostracion.
+// Completa un usuario de demostración.
 function completarUsuarioDemo(usuario) {
   const correo = validacionesBuscar('#login-email');
   const clave = validacionesBuscar('#login-password');
@@ -42,7 +40,7 @@ function completarUsuarioDemo(usuario) {
   correo.value = usuario.email;
   clave.value = 'demo123';
 
-  // Marcamos el boton elegido para que sea facil reconocerlo visualmente.
+  // Marca el perfil seleccionado.
   document.querySelectorAll('[data-demo]').forEach((boton) => {
     const claveUsuario = Object.keys(validacionesUsuarios).find(
       (claveDemo) =>
@@ -57,7 +55,7 @@ function completarUsuarioDemo(usuario) {
 }
 
 
-// Escuchamos los perfiles demo porque esos botones no envian un formulario.
+// Controla los botones de usuarios demo.
 document.addEventListener('click', (evento) => {
   const nombreDemo = evento.target
     .closest('[data-demo]')
@@ -69,9 +67,9 @@ document.addEventListener('click', (evento) => {
 });
 
 
-// Esta parte controla todos los formularios, pero cada uno se reconoce por su id.
+// Controla cada formulario según su id.
 document.addEventListener('submit', (evento) => {
-  // Primero validamos el formulario para iniciar sesion.
+  // Este formulario inicia una sesión simulada.
   if (evento.target.id === 'login-form') {
     evento.preventDefault();
 
@@ -88,7 +86,7 @@ document.addEventListener('submit', (evento) => {
         clave === 'demo123'
     );
 
-    // Si falta informacion o no coincide dejamos un mensaje explicativo.
+    // Muestra un error cuando los datos no coinciden.
     if (!correoEsValido(correo) || !usuarioEncontrado) {
       mostrarMensajeFormulario(
         mensajeError,
@@ -102,10 +100,10 @@ document.addEventListener('submit', (evento) => {
     mensajeError.hidden = true;
     validacionesEstado.user = usuarioEncontrado;
     validacionesGuardar();
-    validacionesMostrarVista('inicio');
+    validacionesMostrarVista('cuenta');
   }
 
-  // Despues revisamos el registro de un cliente nuevo.
+  // Este formulario simula un registro.
   if (evento.target.id === 'register-form') {
     evento.preventDefault();
 
@@ -124,7 +122,7 @@ document.addEventListener('submit', (evento) => {
       return;
     }
 
-    // La EP1 no crea una cuenta real, solamente demuestra la validacion visual.
+    // La EP1 no crea una cuenta real.
     mostrarMensajeFormulario(
       mensajeRegistro,
       'Registro simulado correctamente. Ya puedes iniciar sesión.'
@@ -133,7 +131,7 @@ document.addEventListener('submit', (evento) => {
     evento.target.reset();
   }
 
-  // Por ultimo revisamos el formulario que se encuentra en contacto.html.
+  // Este formulario guarda una consulta local.
   if (evento.target.id === 'contact-form') {
     evento.preventDefault();
 
@@ -152,7 +150,17 @@ document.addEventListener('submit', (evento) => {
       return;
     }
 
-    // La consulta se simula y no se manda a una base de datos externa.
+    validacionesEstado.messages.unshift({
+      id: `CON-${String(validacionesEstado.messages.length + 1).padStart(4, '0')}`,
+      name: nombre,
+      email: correo,
+      comment: comentario,
+      date: new Date().toLocaleDateString('es-CL')
+    });
+
+    validacionesGuardar();
+
+    // La consulta se guarda sólo para la demostración.
     mostrarMensajeFormulario(
       mensajeContacto,
       'Consulta registrada correctamente para esta demostración.'

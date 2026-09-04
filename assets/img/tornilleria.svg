@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#eef1f0"/>
+  <g transform="rotate(-38 600 375)" stroke="#153b35" stroke-width="20" stroke-linejoin="round">
+    <path d="M500 70h200v130H500z" fill="#d9ddd5"/>
+    <path d="M525 135h150"/>
+    <path d="M600 70v130"/>
+    <path d="M540 200h120v410l-60 105-60-105z" fill="#b7c2bb"/>
+    <path d="m540 270 120 65-120 65 120 65-120 65 120 65" fill="none"/>
+  </g>
+  <circle cx="905" cy="230" r="115" fill="#f7b733" stroke="#153b35" stroke-width="20"/>
+  <path d="M845 230h120M905 170v120" stroke="#153b35" stroke-width="22"/>
+  <text x="600" y="750" text-anchor="middle" fill="#153b35" font-family="Arial" font-size="52" font-weight="700">TORNILLERÍA</text>
+</svg>

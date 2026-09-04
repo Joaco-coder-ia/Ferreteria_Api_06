@@ -1,20 +1,50 @@
-// En este archivo dejamos todo lo relacionado con productos y carrito.
-// Lo separamos de app.js para encontrar cada parte mas rapido.
+// Este archivo controla productos, filtros, detalle, carrito y pedidos.
 
 
-// Recuperamos las herramientas generales que preparamos en app.js.
+// Funciones compartidas desde app.js.
 const catalogoSistema = window.ferreteria;
 const catalogoEstado = catalogoSistema.estadoAplicacion;
 const catalogoBuscar = catalogoSistema.buscarElemento;
 const catalogoDinero = catalogoSistema.formatearDinero;
 const catalogoGuardar = catalogoSistema.guardarEstado;
-const catalogoMostrarVista = catalogoSistema.mostrarVista;
 
 
-// Esta funcion arma una tarjeta HTML para cada producto del catalogo.
+// Cada categoría utiliza una imagen local de assets/img.
+const imagenesPorCategoria = {
+  'Mat. Construcción': 'construccion.svg',
+  Pinturas: 'pinturas.svg',
+  Herramientas: 'herramientas.svg',
+  Gasfitería: 'gasfiteria.svg',
+  Electricidad: 'electricidad.svg',
+  Madera: 'madera.svg',
+  Jardín: 'jardin.svg',
+  Seguridad: 'seguridad.svg',
+  Tornillería: 'tornilleria.svg'
+};
+
+
+// Devuelve la imagen que corresponde al producto.
+function obtenerImagenProducto(producto) {
+  const archivo = imagenesPorCategoria[producto.categoria]
+    || 'herramientas.svg';
+
+  return `assets/img/${archivo}`;
+}
+
+
+// Arma una tarjeta HTML para cada producto.
 function crearTarjetaProducto(producto) {
   return `
     <article class="product-card">
+      <figure class="product-image-frame">
+        <img
+          class="product-image"
+          src="${obtenerImagenProducto(producto)}"
+          alt="Imagen referencial de ${producto.nombre}"
+          loading="lazy"
+        />
+      </figure>
+
       <span class="category">${producto.categoria}</span>
 
       <h2>${producto.nombre}</h2>
@@ -55,8 +85,7 @@ function crearTarjetaProducto(producto) {
 }
 
 
-// Aca aplicamos la busqueda, la categoria y el filtro de stock.
-// Despues dibujamos solamente los productos que cumplen esas condiciones.
+// Aplica la búsqueda y los filtros del catálogo.
 function mostrarCatalogo() {
   const buscador = catalogoBuscar('#search');
   const selectorCategoria = catalogoBuscar('#category');
@@ -64,7 +93,7 @@ function mostrarCatalogo() {
   const grillaProductos = catalogoBuscar('#product-grid');
   const estadoCatalogo = catalogoBuscar('#catalog-status');
 
-  // En la pagina de inicio no existen los filtros, por eso salimos sin error.
+  // Evita errores cuando este archivo se carga en el inicio.
   if (!buscador || !selectorCategoria || !soloStock || !grillaProductos) {
     return;
   }
@@ -76,7 +105,7 @@ function mostrarCatalogo() {
   const categoriaElegida = selectorCategoria.value;
   const mostrarSoloStock = soloStock.checked;
 
-  // Revisamos todos los productos para saber cuales debemos enseñar.
+  // Filtra los productos según los controles seleccionados.
   const productosFiltrados = catalogoEstado.products.filter((producto) => {
     const informacionProducto = `
       ${producto.codigo}
@@ -97,13 +126,13 @@ function mostrarCatalogo() {
     return coincideTexto && coincideCategoria && coincideStock;
   });
 
-  // Este mensaje ayuda a saber cuantos resultados dejaron los filtros.
+  // Muestra la cantidad de resultados.
   if (estadoCatalogo) {
     estadoCatalogo.textContent =
       `${productosFiltrados.length} productos · datos locales de demostración`;
   }
 
-  // Cuando no coincide ningun producto dejamos un mensaje en vez de la grilla vacia.
+  // Muestra tarjetas o un mensaje sin resultados.
   grillaProductos.innerHTML = productosFiltrados.length
     ? productosFiltrados.map(crearTarjetaProducto).join('')
     : `
@@ -115,7 +144,7 @@ function mostrarCatalogo() {
 }
 
 
-// Cuando apretamos Ver detalle buscamos el codigo y mostramos su informacion.
+// Muestra la información completa del producto elegido.
 function mostrarDetalle(codigo) {
   const producto = catalogoEstado.products.find(
     (elemento) => elemento.codigo === codigo
@@ -123,13 +152,40 @@ function mostrarDetalle(codigo) {
 
   const detalleProducto = catalogoBuscar('#product-detail');
 
-  if (!producto || !detalleProducto) {
+  // Desde el catálogo abre el HTML independiente del producto.
+  if (producto && !detalleProducto) {
+    window.location.href = `producto.html?codigo=${encodeURIComponent(codigo)}`;
+    return;
+  }
+
+  if (!detalleProducto) {
+    return;
+  }
+
+  if (!producto) {
+    detalleProducto.innerHTML = `
+      <div class="empty">
+        <h1>Producto no encontrado</h1>
+        <p>El código solicitado no existe en el catálogo.</p>
+        <a class="button button-primary" href="productos.html">
+          Volver al catálogo
+        </a>
+      </div>
+    `;
     return;
   }
 
   catalogoEstado.selected = producto;
 
   detalleProducto.innerHTML = `
+    <figure class="product-image-frame detail-image-frame">
+      <img
+        class="product-image"
+        src="${obtenerImagenProducto(producto)}"
+        alt="Imagen referencial de ${producto.nombre}"
+      />
+    </figure>
+
     <span class="category">
       ${producto.categoria} · ${producto.subcategoria}
     </span>
@@ -161,17 +217,16 @@ function mostrarDetalle(codigo) {
     </button>
   `;
 
-  catalogoMostrarVista('detalle');
 }
 
 
-// Esta funcion agrega una unidad al carrito sin superar el stock disponible.
+// Agrega una unidad al carrito sin superar el stock.
 function agregarAlCarrito(codigo) {
   const producto = catalogoEstado.products.find(
     (elemento) => elemento.codigo === codigo
   );
 
-  // Si el producto no existe o no tiene stock no cambiamos nada.
+  // No agrega productos agotados.
   if (!producto || producto.stock < 1) {
     return;
   }
@@ -181,13 +236,13 @@ function agregarAlCarrito(codigo) {
   );
 
   if (productoActual) {
-    // Math.min evita que la cantidad pueda superar el stock real.
+    // Limita la cantidad al stock disponible.
     productoActual.cantidad = Math.min(
       productoActual.cantidad + 1,
       producto.stock
     );
   } else {
-    // Si todavia no estaba guardado lo agregamos comenzando en una unidad.
+    // Un producto nuevo comienza con una unidad.
     catalogoEstado.cart.push({
       ...producto,
       cantidad: 1
@@ -196,14 +251,14 @@ function agregarAlCarrito(codigo) {
 
   catalogoGuardar();
 
-  // Si estamos mirando el carrito lo redibujamos para ver el cambio altiro.
+  // Actualiza el carrito si está visible.
   if (!catalogoBuscar('#view-carrito')?.hidden) {
     mostrarCarrito();
   }
 }
 
 
-// Esta funcion construye el carrito, sus cantidades y el total del pedido.
+// Construye el carrito y calcula su total.
 function mostrarCarrito() {
   const contenidoCarrito = catalogoBuscar('#cart-content');
 
@@ -211,7 +266,7 @@ function mostrarCarrito() {
     return;
   }
 
-  // Si no guardamos productos mostramos una ayuda para volver al catalogo.
+  // Muestra una ayuda cuando el carrito está vacío.
   if (!catalogoEstado.cart.length) {
     contenidoCarrito.innerHTML = `
       <div class="empty">
@@ -234,7 +289,7 @@ function mostrarCarrito() {
     return;
   }
 
-  // Sumamos precio por cantidad para calcular el total del pedido.
+  // Suma precio por cantidad.
   const totalCarrito = catalogoEstado.cart.reduce(
     (total, producto) =>
       total + producto.precioVenta * producto.cantidad,
@@ -315,7 +370,7 @@ function mostrarCarrito() {
 }
 
 
-// Los botones de las tarjetas se reconocen por sus atributos data.
+// Controla los botones de detalle y agregar.
 document.addEventListener('click', (evento) => {
   const codigoDetalle = evento.target
     .closest('[data-detail]')
@@ -335,14 +390,14 @@ document.addEventListener('click', (evento) => {
 });
 
 
-// Cada vez que escribimos o cambiamos un filtro actualizamos los productos.
+// Actualiza el catálogo al cambiar los filtros.
 const formularioFiltros = catalogoBuscar('#filter-form');
 
 formularioFiltros?.addEventListener('input', mostrarCatalogo);
 formularioFiltros?.addEventListener('change', mostrarCatalogo);
 
 
-// Este evento detecta los cambios de cantidad dentro del carrito.
+// Cambia cantidades dentro del carrito.
 document.addEventListener('change', (evento) => {
   const codigoProducto = evento.target.dataset.quantity;
 
@@ -355,7 +410,7 @@ document.addEventListener('change', (evento) => {
   );
 
   if (producto) {
-    // Limitamos el numero entre cero y el stock que tiene ese producto.
+    // Limita la cantidad entre cero y el stock.
     producto.cantidad = Math.max(
       0,
       Math.min(
@@ -365,7 +420,7 @@ document.addEventListener('change', (evento) => {
     );
   }
 
-  // Una cantidad igual a cero sirve para sacar el producto del carrito.
+  // Cero elimina el producto del carrito.
   catalogoEstado.cart = catalogoEstado.cart.filter(
     (elemento) => elemento.cantidad > 0
   );
@@ -375,7 +430,7 @@ document.addEventListener('change', (evento) => {
 });
 
 
-// Como el formulario del pedido se crea con JavaScript usamos un evento general.
+// Este formulario confirma un pedido simulado.
 document.addEventListener('submit', (evento) => {
   if (evento.target.id !== 'order-form') {
     return;
@@ -392,14 +447,17 @@ document.addEventListener('submit', (evento) => {
   const tipoEntrega = new FormData(evento.target)
     .get('delivery');
 
-  // Creamos un numero sencillo para reconocer el pedido en Mi cuenta.
+  // Guarda los datos necesarios para los paneles de usuario.
   catalogoEstado.orders.unshift({
     id: `PED-${String(catalogoEstado.orders.length + 1).padStart(4, '0')}`,
     total: totalPedido,
-    delivery: tipoEntrega
+    delivery: tipoEntrega,
+    customer: catalogoEstado.user?.name || 'Cliente sin sesión',
+    customerEmail: catalogoEstado.user?.email || '',
+    date: new Date().toLocaleDateString('es-CL')
   });
 
-  // Al confirmar guardamos el pedido y dejamos el carrito vacio.
+  // Guarda el pedido y vacía el carrito.
   catalogoEstado.cart = [];
   catalogoGuardar();
 
@@ -424,7 +482,7 @@ document.addEventListener('submit', (evento) => {
 });
 
 
-// Estas funciones quedan disponibles para que app.js pueda llamarlas.
+// Comparte las funciones que necesita app.js.
 window.funcionesCatalogo = {
   mostrarCatalogo,
   mostrarDetalle,
@@ -433,7 +491,7 @@ window.funcionesCatalogo = {
 };
 
 
-// Aqui leemos los 85 productos desde el archivo JSON del proyecto.
+// Lee los 85 productos desde el JSON.
 fetch('data/productos.json')
   .then((respuesta) => {
     if (!respuesta.ok) {
@@ -445,7 +503,7 @@ fetch('data/productos.json')
   .then((productos) => {
     catalogoEstado.products = productos;
 
-    // Set nos ayuda a obtener las categorias sin repetir sus nombres.
+    // Obtiene las categorías sin repetirlas.
     const categorias = [
       ...new Set(
         productos.map((producto) => producto.categoria)
@@ -465,7 +523,7 @@ fetch('data/productos.json')
       );
     }
 
-    // En el inicio ocupamos estos datos para completar el resumen de la tienda.
+    // Completa las estadísticas del inicio.
     const totalProductos = catalogoBuscar('#hero-total');
     const totalCategorias = catalogoBuscar('#hero-categorias');
     const productosConStock = catalogoBuscar('#hero-stock');
@@ -484,13 +542,24 @@ fetch('data/productos.json')
       ).length;
     }
 
-    // Dependiendo de la direccion mostramos el catalogo o el carrito guardado.
+    // Completa solamente el contenido que pertenece al HTML abierto.
     if (catalogoBuscar('#view-catalogo')) {
-      if (window.location.hash === '#carrito') {
-        mostrarCarrito();
-      } else {
-        mostrarCatalogo();
-      }
+      mostrarCatalogo();
+    }
+
+    if (catalogoBuscar('#view-carrito')) {
+      mostrarCarrito();
+    }
+
+    if (catalogoBuscar('#view-detalle')) {
+      const codigoProducto = new URLSearchParams(window.location.search)
+        .get('codigo');
+
+      mostrarDetalle(codigoProducto);
+    }
+
+    if (catalogoBuscar('#view-cuenta')) {
+      catalogoSistema.mostrarCuenta();
     }
 
     catalogoGuardar();

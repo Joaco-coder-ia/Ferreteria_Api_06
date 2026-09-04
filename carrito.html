@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contacto de Ferretería Los Maestros" />
-  <title>Contacto | Ferretería Los Maestros</title>
+  <meta name="description" content="Carrito de Ferretería Los Maestros" />
+  <title>Carrito | Ferretería Los Maestros</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" href="assets/img/herramientas.svg" type="image/svg+xml" />
 </head>
 
-<body data-page="contacto">
+<body data-page="carrito">
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Volver al inicio">
       <span class="brand-mark" aria-hidden="true">⌂</span>
@@ -22,32 +22,21 @@
     <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
       <a href="index.html">Inicio</a>
       <a href="productos.html">Catálogo</a>
-      <a href="carrito.html">Carrito</a>
-      <a href="contacto.html" aria-current="page">Contacto</a>
+      <a href="carrito.html" aria-current="page">Carrito</a>
+      <a href="contacto.html">Contacto</a>
       <a href="cuenta.html">Mi cuenta</a>
       <a href="ingreso.html">Ingreso</a>
     </nav>
   </header>
 
   <main id="app" tabindex="-1">
-    <!-- Este formulario registra consultas simuladas. -->
-    <section id="view-contacto" class="view content-section narrow">
+    <!-- El contenido del carrito se arma desde catalogo.js. -->
+    <section id="view-carrito" class="view content-section">
       <div class="section-heading">
-        <p class="eyebrow">Estamos para ayudarte</p>
-        <h1>Contacto</h1>
-        <p>Completa el formulario para registrar tu consulta.</p>
+        <p class="eyebrow">Solicitud de productos</p>
+        <h1>Tu carrito</h1>
       </div>
-
-      <form id="contact-form" class="auth-card" novalidate>
-        <label for="contact-name">Nombre completo</label>
-        <input id="contact-name" name="nombre" type="text" maxlength="100" required />
-        <label for="contact-email">Correo electrónico</label>
-        <input id="contact-email" name="correo" type="email" maxlength="100" required />
-        <label for="contact-message">Comentario</label>
-        <textarea id="contact-message" name="comentario" maxlength="500" required></textarea>
-        <p id="contact-message-status" class="form-message" role="status" hidden></p>
-        <button class="button button-primary full" type="submit">Enviar consulta</button>
-      </form>
+      <div id="cart-content"></div>
     </section>
   </main>
 
@@ -58,7 +47,7 @@
   </footer>
 
   <script src="assets/js/app.js"></script>
-  <script src="assets/js/validaciones.js"></script>
+  <script src="assets/js/catalogo.js"></script>
 </body>
 
 </html>

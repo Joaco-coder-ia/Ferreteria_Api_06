@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#eef2f1"/>
+  <path d="M600 95 925 220v210c0 175-125 280-325 350-200-70-325-175-325-350V220z" fill="#236b5b" stroke="#153b35" stroke-width="24"/>
+  <path d="M405 430c0-125 75-230 195-230s195 105 195 230" fill="#f7b733" stroke="#153b35" stroke-width="22"/>
+  <path d="M365 430h470v95H365z" fill="#f7b733" stroke="#153b35" stroke-width="22"/>
+  <path d="M600 205v220" stroke="#d86b4d" stroke-width="28"/>
+  <text x="600" y="715" text-anchor="middle" fill="#fffdf8" font-family="Arial" font-size="52" font-weight="700">SEGURIDAD</text>
+</svg>
