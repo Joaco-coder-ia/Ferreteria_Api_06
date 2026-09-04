@@ -84,9 +84,9 @@ puede ser bloqueada por el navegador.
 
 ## Integrantes
 
-- [Completar nombre y apellido]
-- [Completar nombre y apellido]
-- [Completar nombre y apellido]
+-
+-
+-
 
 ## Institución
 
