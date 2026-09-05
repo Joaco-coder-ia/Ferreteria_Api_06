@@ -104,9 +104,9 @@ puede ser bloqueada por el navegador.
 
 ## Integrantes
 
--
--
--
+- Joaquin Gonzalez
+- Braulio gomez
+- Alejandro Maturana
 
 ## Institución
 
