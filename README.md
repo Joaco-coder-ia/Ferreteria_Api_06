@@ -111,8 +111,6 @@ carga de `productos.json` cuando el HTML se abre directamente con doble clic.
 ## Integrantes
 
 - Joaquin Gonzalez
-- Braulio gomez
-- Alejandro Maturana
 
 ## Institución
 
