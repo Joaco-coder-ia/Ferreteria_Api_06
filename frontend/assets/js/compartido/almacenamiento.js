@@ -12,12 +12,14 @@
   const usuariosIniciales = [
     {
       id: 'USR-001',
-      nombre: 'Administrador General',
-      correo: 'admin@losmaestros.cl',
+      nombre: 'Administrador',
+      apellidos: 'General',
+      correo: 'admin@duoc.cl',
       clave: 'demo123',
       rol: 'Administrador',
       estado: 'Activo',
-      run: '12.345.678-5',
+      run: '123456785',
+      fechaNacimiento: '1990-01-15',
       telefono: '+56 9 5000 1001',
       region: 'Coquimbo',
       comuna: 'La Serena',
@@ -25,12 +27,14 @@
     },
     {
       id: 'USR-002',
-      nombre: 'Camila Vendedora',
-      correo: 'vendedor@losmaestros.cl',
+      nombre: 'Camila',
+      apellidos: 'Vendedora',
+      correo: 'vendedor@duoc.cl',
       clave: 'demo123',
       rol: 'Vendedor',
       estado: 'Activo',
-      run: '15.480.320-K',
+      run: '154803203',
+      fechaNacimiento: '1995-06-20',
       telefono: '+56 9 5000 1002',
       region: 'Coquimbo',
       comuna: 'Coquimbo',
@@ -38,12 +42,14 @@
     },
     {
       id: 'USR-003',
-      nombre: 'Contratista Demo',
-      correo: 'contratista@demo.cl',
+      nombre: 'Contratista',
+      apellidos: 'Demo',
+      correo: 'contratista@gmail.com',
       clave: 'demo123',
       rol: 'Contratista',
       estado: 'Activo',
-      run: '18.204.116-7',
+      run: '182041165',
+      fechaNacimiento: '',
       telefono: '+56 9 5000 1003',
       region: 'Coquimbo',
       comuna: 'La Serena',
@@ -51,12 +57,14 @@
     },
     {
       id: 'USR-004',
-      nombre: 'Cliente Demo',
-      correo: 'cliente@demo.cl',
+      nombre: 'Cliente',
+      apellidos: 'Demo',
+      correo: 'cliente@gmail.com',
       clave: 'demo123',
       rol: 'Cliente',
       estado: 'Activo',
-      run: '19.734.621-5',
+      run: '197346213',
+      fechaNacimiento: '',
       telefono: '+56 9 5000 1004',
       region: 'Coquimbo',
       comuna: 'Ovalle',
@@ -66,14 +74,14 @@
 
   // Información de ejemplo para que los paneles tengan datos al presentarlos.
   const pedidosIniciales = [
-    { id: 'PED-0001', cliente: 'Contratista Demo', correo: 'contratista@demo.cl', total: 189990, entrega: 'Retiro en tienda', fecha: '12 ago 2026', fechaISO: '2026-08-12', estado: 'Listo' },
+    { id: 'PED-0001', cliente: 'Contratista Demo', correo: 'contratista@gmail.com', total: 189990, entrega: 'Retiro en tienda', fecha: '12 ago 2026', fechaISO: '2026-08-12', estado: 'Listo' },
     { id: 'PED-0002', cliente: 'Constructora Horizonte', correo: 'compras@horizonte.cl', total: 428500, entrega: 'Despacho a obra', fecha: '19 ago 2026', fechaISO: '2026-08-19', estado: 'Listo' },
-    { id: 'PED-0003', cliente: 'Contratista Demo', correo: 'contratista@demo.cl', total: 76490, entrega: 'Despacho a domicilio', fecha: '27 ago 2026', fechaISO: '2026-08-27', estado: 'Listo' },
+    { id: 'PED-0003', cliente: 'Contratista Demo', correo: 'contratista@gmail.com', total: 76490, entrega: 'Despacho a domicilio', fecha: '27 ago 2026', fechaISO: '2026-08-27', estado: 'Listo' },
     { id: 'PED-0004', cliente: 'Servicios Elqui', correo: 'operaciones@elqui.cl', total: 315800, entrega: 'Retiro en tienda', fecha: '2 sept 2026', fechaISO: '2026-09-02', estado: 'Preparando' },
-    { id: 'PED-0005', cliente: 'Contratista Demo', correo: 'contratista@demo.cl', total: 142350, entrega: 'Despacho a domicilio', fecha: '6 sept 2026', fechaISO: '2026-09-06', estado: 'Preparando' },
+    { id: 'PED-0005', cliente: 'Contratista Demo', correo: 'contratista@gmail.com', total: 142350, entrega: 'Despacho a domicilio', fecha: '6 sept 2026', fechaISO: '2026-09-06', estado: 'Preparando' },
     { id: 'PED-0006', cliente: 'Maestranza Norte', correo: 'bodega@mnorte.cl', total: 99800, entrega: 'Retiro en tienda', fecha: '8 sept 2026', fechaISO: '2026-09-08', estado: 'Pendiente' },
-    { id: 'PED-0007', cliente: 'Contratista Demo', correo: 'contratista@demo.cl', total: 234900, entrega: 'Despacho a domicilio', fecha: '10 sept 2026', fechaISO: '2026-09-10', estado: 'Pendiente' },
-    { id: 'PED-0008', cliente: 'Cliente Demo', correo: 'cliente@demo.cl', total: 48990, entrega: 'Retiro en tienda', fecha: '10 sept 2026', fechaISO: '2026-09-10', estado: 'Preparando' }
+    { id: 'PED-0007', cliente: 'Contratista Demo', correo: 'contratista@gmail.com', total: 234900, entrega: 'Despacho a domicilio', fecha: '10 sept 2026', fechaISO: '2026-09-10', estado: 'Pendiente' },
+    { id: 'PED-0008', cliente: 'Cliente Demo', correo: 'cliente@gmail.com', total: 48990, entrega: 'Retiro en tienda', fecha: '10 sept 2026', fechaISO: '2026-09-10', estado: 'Preparando' }
   ];
 
   const consultasIniciales = [
@@ -135,14 +143,14 @@
   };
 
   // Agrega el escenario de muestra una sola vez, sin reemplazar datos creados por la persona.
-  const versionDemo = 'paneles-2026-09-v2';
+  const versionDemo = 'paneles-2026-09-v3-validaciones';
   if (localStorage.getItem('ferreteria-version-demo') !== versionDemo) {
     if (!estado.pedidos.length) estado.pedidos = pedidosIniciales.map((pedido) => ({ ...pedido }));
     if (!estado.consultas.length) estado.consultas = consultasIniciales.map((consulta) => ({ ...consulta }));
-    estado.usuarios = estado.usuarios.map((usuario) => ({
-      ...(usuariosIniciales.find((demo) => demo.id === usuario.id || demo.correo === usuario.correo) || {}),
-      ...usuario
-    }));
+    estado.usuarios = estado.usuarios.map((usuario) => {
+      const demo = usuariosIniciales.find((item) => item.id === usuario.id);
+      return demo ? { ...usuario, ...demo } : usuario;
+    });
     usuariosIniciales.forEach((demo) => {
       if (!estado.usuarios.some((usuario) => usuario.correo === demo.correo)) estado.usuarios.push({ ...demo });
     });

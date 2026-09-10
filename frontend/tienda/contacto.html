@@ -1,14 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Contacto y orientación de Ferretería Los Maestros." />
-  <title>Contacto | Ferretería Los Maestros</title><link rel="stylesheet" href="../assets/css/styles.css" /><link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png" />
-</head>
-<body data-page="contacto" data-root="../">
-  <a class="skip-link" href="#contenido">Saltar al contenido</a><div class="topbar"><p>Respuesta dentro del horario de atención</p><p>La Serena, Región de Coquimbo</p></div>
-  <header class="site-header professional-header"><a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Ferretería y construcción</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">☰ <span>Menú</span></button><nav id="main-nav" class="main-nav"><a href="../index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="nosotros.html">Nosotros</a><a href="contacto.html" aria-current="page">Contacto</a></nav><div class="header-actions"><a class="header-link" href="inicio-sesion.html" data-session-link>Mi cuenta</a><a class="cart-link" href="carrito.html">Carrito <span data-cart-count>0</span></a></div></header>
-  <main id="contenido" tabindex="-1"><section class="contact-layout"><aside class="contact-intro"><p class="eyebrow">Hablemos de tu proyecto</p><h1>Cuéntanos qué necesitas.</h1><p>Envíanos una consulta y quedará disponible para revisión en el panel administrativo.</p><div class="contact-methods"><article><span>01</span><div><strong>Visítanos</strong><p>La Serena, Región de Coquimbo</p></div></article><article><span>02</span><div><strong>Horario</strong><p>Lunes a viernes, 08:30 a 19:00</p></div></article><article><span>03</span><div><strong>Respuesta</strong><p>Dentro del horario comercial</p></div></article></div></aside><div class="form-card pro-form-card"><p class="eyebrow">Formulario de contacto</p><h2>¿Cómo podemos ayudarte?</h2><form id="contact-form" novalidate><div class="field-grid"><div><label for="contact-name">Nombre completo</label><input id="contact-name" name="nombre" autocomplete="name" required /></div><div><label for="contact-email">Correo electrónico</label><input id="contact-email" name="correo" type="email" autocomplete="email" required /></div></div><label for="contact-subject">Motivo de consulta</label><select id="contact-subject" name="asunto" required><option value="Cotización">Cotización</option><option value="Disponibilidad">Disponibilidad de producto</option><option value="Despacho">Despacho a obra</option><option value="Otro">Otro</option></select><label for="contact-message">Cuéntanos los detalles</label><textarea id="contact-message" name="comentario" maxlength="500" rows="6" placeholder="Describe los productos, cantidades o dudas de tu proyecto." required></textarea><p id="contact-message-status" class="form-message" role="status" hidden></p><button class="button button-primary button-large full" type="submit">Enviar consulta</button></form></div></section></main>
-  <footer class="site-footer professional-footer"><div><a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Ferretería y construcción</small></span></a></div><div><strong>Tienda</strong><a href="catalogo.html">Catálogo</a><a href="carrito.html">Carrito</a></div><div><strong>Empresa</strong><a href="nosotros.html">Nosotros</a></div><div><strong>Ayuda</strong><a href="contacto.html">Contacto</a></div></footer>
-  <script src="../assets/js/compartido/almacenamiento.js"></script><script src="../assets/js/compartido/utilidades.js"></script><script src="../assets/js/validaciones/comunes.js"></script><script src="../assets/js/validaciones/contacto.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/tienda/contacto.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto y orientación de Ferretería Los Maestros.">
+    <title>Contacto | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png">
+  </head>
+  <body data-page="contacto" data-root="../">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="topbar">
+      <p>Respuesta dentro del horario de atención</p>
+      <p>La Serena, Región de Coquimbo</p>
+    </div>
+
+    <header class="site-header professional-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">LM</span>
+        <span><strong>Los Maestros</strong> <small>Ferretería y construcción</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">☰ <span>Menú</span></button>
+      <nav id="main-nav" class="main-nav">
+        <a href="../index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-link" href="inicio-sesion.html" data-session-link>Mi cuenta</a>
+        <a class="cart-link" href="carrito.html">Carrito <span data-cart-count>0</span></a>
+      </div>
+    </header>
+
+    <main id="contenido" tabindex="-1">
+      <section class="contact-layout">
+        <aside class="contact-intro">
+          <p class="eyebrow">Hablemos de tu proyecto</p>
+          <h1>Cuéntanos qué necesitas.</h1>
+          <p>Envíanos una consulta y quedará disponible para revisión en el panel administrativo.</p>
+          <div class="contact-methods">
+            <article>
+              <span>01</span>
+              <div>
+                <strong>Visítanos</strong>
+                <p>La Serena, Región de Coquimbo</p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <strong>Horario</strong>
+                <p>Lunes a viernes, 08:30 a 19:00</p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <strong>Respuesta</strong>
+                <p>Dentro del horario comercial</p>
+              </div>
+            </article>
+          </div>
+        </aside>
+        <div class="form-card pro-form-card">
+          <p class="eyebrow">Formulario de contacto</p>
+          <h2>¿Cómo podemos ayudarte?</h2>
+          <form id="contact-form" novalidate>
+            <div class="field-grid">
+              <div>
+                <label for="contact-name">Nombre completo</label>
+                <input id="contact-name" name="nombre" maxlength="100" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="contact-email">Correo electrónico</label>
+                <input id="contact-email" name="correo" type="email" maxlength="100" autocomplete="email" required>
+              </div>
+            </div>
+            <label for="contact-subject">Motivo de consulta</label>
+            <select id="contact-subject" name="asunto" required>
+              <option value="Cotización">Cotización</option>
+              <option value="Disponibilidad">Disponibilidad de producto</option>
+              <option value="Despacho">Despacho a obra</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <label for="contact-message">Cuéntanos los detalles</label>
+            <textarea id="contact-message" name="comentario" maxlength="500" rows="6" placeholder="Describe los productos, cantidades o dudas de tu proyecto." required></textarea>
+            <p id="contact-message-status" class="form-message" role="status" hidden></p>
+            <button class="button button-primary button-large full" type="submit">Enviar consulta</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer professional-footer">
+      <div>
+        <a class="brand" href="../index.html">
+          <span class="brand-mark">LM</span>
+          <span><strong>Los Maestros</strong> <small>Ferretería y construcción</small></span>
+        </a>
+      </div>
+      <div>
+        <strong>Tienda</strong>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="carrito.html">Carrito</a>
+      </div>
+      <div>
+        <strong>Empresa</strong>
+        <a href="nosotros.html">Nosotros</a>
+      </div>
+      <div>
+        <strong>Ayuda</strong>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/compartido/almacenamiento.js"></script>
+    <script src="../assets/js/compartido/utilidades.js"></script>
+    <script src="../assets/js/validaciones/comunes.js"></script>
+    <script src="../assets/js/validaciones/contacto.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/tienda/contacto.js"></script>
+  </body>
 </html>

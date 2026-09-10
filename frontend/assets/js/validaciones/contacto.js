@@ -1,12 +1,18 @@
-// Reglas específicas del formulario de contacto.
+// Reglas especificas del formulario de contacto.
 (function iniciarValidacionContacto() {
   const comunes = window.Ferreteria.validaciones;
 
-  function validarContacto(datos) {
-    return comunes.textoValido(datos.nombre)
-      && comunes.correoValido(datos.correo)
-      && comunes.textoValido(datos.comentario, 10);
+  function erroresContacto(datos) {
+    const errores = {};
+    if (!comunes.textoValido(datos.nombre, 1, 100)) errores.nombre = 'Ingresa tu nombre (máximo 100 caracteres).';
+    if (!comunes.correoValido(datos.correo)) errores.correo = 'Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com (máximo 100 caracteres).';
+    if (!comunes.textoValido(datos.comentario, 1, 500)) errores.comentario = 'Escribe un comentario de hasta 500 caracteres.';
+    return errores;
   }
 
-  window.Ferreteria.validacionesContacto = { validarContacto };
+  function validarContacto(datos) {
+    return Object.keys(erroresContacto(datos)).length === 0;
+  }
+
+  window.Ferreteria.validacionesContacto = { erroresContacto, validarContacto };
 })();

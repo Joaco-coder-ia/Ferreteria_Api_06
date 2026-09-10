@@ -1,34 +1,72 @@
-// Registra un cliente nuevo solamente dentro de la demostración.
+// Registra una cuenta simulada desde la tienda.
 (function iniciarRegistro() {
   const sistema = window.Ferreteria;
   const { estado, sincronizar } = sistema.almacenamiento;
   const { buscar, mostrarMensaje } = sistema.utilidades;
-  const { correoValido, textoValido, claveValida } = sistema.validaciones;
+  const { correoValido, textoValido, claveValida, ponerError } = sistema.validaciones;
+  const formulario = buscar('#register-form');
+  if (!formulario) return;
 
-  buscar('#register-form')?.addEventListener('submit', (evento) => {
+  function leerDatos() {
+    const datos = new FormData(formulario);
+    return {
+      nombre: String(datos.get('nombre') || '').trim(),
+      correo: String(datos.get('correo') || '').trim().toLowerCase(),
+      telefono: String(datos.get('telefono') || '').trim(),
+      region: String(datos.get('region') || ''),
+      comuna: String(datos.get('comuna') || ''),
+      clave: String(datos.get('clave') || ''),
+      confirmarClave: String(datos.get('confirmarClave') || '')
+    };
+  }
+
+  function validar() {
+    const datos = leerDatos();
+    const errores = {
+      nombre: textoValido(datos.nombre, 1, 50) ? '' : 'Ingresa tu nombre (máximo 50 caracteres).',
+      correo: correoValido(datos.correo) ? '' : 'Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com (máximo 100 caracteres).',
+      region: datos.region ? '' : 'Selecciona una región.',
+      comuna: datos.comuna ? '' : 'Selecciona una comuna.',
+      clave: claveValida(datos.clave) ? '' : 'La contraseña debe tener entre 4 y 10 caracteres.',
+      confirmarClave: datos.confirmarClave === datos.clave && datos.confirmarClave ? '' : 'Las contraseñas deben coincidir.'
+    };
+    Object.entries(errores).forEach(([nombre, error]) => ponerError(formulario.elements[nombre], error));
+    return { datos, errores };
+  }
+
+  ['input', 'change'].forEach((evento) => formulario.addEventListener(evento, (e) => {
+    if (e.target.matches('input, select')) validar();
+  }));
+
+  formulario.addEventListener('submit', (evento) => {
     evento.preventDefault();
-    const datos = new FormData(evento.target);
-    const nombre = datos.get('nombre').trim();
-    const correo = datos.get('correo').trim().toLowerCase();
-    const clave = datos.get('clave');
+    const { datos, errores } = validar();
     const mensaje = buscar('#register-message');
-
-    if (!textoValido(nombre) || !correoValido(correo) || !claveValida(clave)) {
-      mostrarMensaje(mensaje, 'Revisa el nombre, el correo y una contraseña de al menos 6 caracteres.', 'error');
+    if (Object.values(errores).some(Boolean)) {
+      mostrarMensaje(mensaje, 'Revisa los campos marcados antes de crear la cuenta.', 'error');
       return;
     }
-
-    if (estado.usuarios.some((usuario) => usuario.correo.toLowerCase() === correo)) {
-      mostrarMensaje(mensaje, 'Este correo ya está registrado.', 'error');
+    if (estado.usuarios.some((usuario) => usuario.correo.toLowerCase() === datos.correo)) {
+      ponerError(formulario.elements.correo, 'Este correo ya está registrado.');
+      mostrarMensaje(mensaje, 'El correo indicado ya pertenece a otra cuenta.', 'error');
       return;
     }
 
     estado.usuarios.push({
       id: `USR-${String(estado.usuarios.length + 1).padStart(3, '0')}`,
-      nombre, correo, clave, rol: 'Contratista', estado: 'Activo', comuna: datos.get('comuna')
+      nombre: datos.nombre,
+      apellidos: '',
+      correo: datos.correo,
+      telefono: datos.telefono,
+      region: datos.region,
+      comuna: datos.comuna,
+      clave: datos.clave,
+      rol: 'Cliente',
+      estado: 'Activo'
     });
     sincronizar();
     mostrarMensaje(mensaje, 'Cuenta creada correctamente. Ya puedes iniciar sesión.');
-    evento.target.reset();
+    formulario.reset();
+    formulario.querySelectorAll('.field-error').forEach((error) => { error.hidden = true; error.textContent = ''; });
   });
 })();

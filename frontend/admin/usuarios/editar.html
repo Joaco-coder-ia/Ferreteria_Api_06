@@ -1,23 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Editar usuario | Administración</title><link rel="stylesheet" href="../../assets/css/styles.css" /><link rel="icon" href="../../assets/logo/los-maestros-marca.png" type="image/png" /></head>
-<body class="admin-body" data-root="../../" data-admin-view="editar">
-  <div class="admin-shell">
-    <aside class="admin-sidebar"><a class="brand" href="../../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Administración</small></span></a><div class="workspace-label">Menú principal</div><nav class="admin-nav"><a href="../index.html"><span>01</span>Resumen</a><a class="is-active" href="listado.html"><span>02</span>Usuarios</a><a href="../productos/listado.html"><span>03</span>Productos</a><a href="../../tienda/catalogo.html"><span>04</span>Ver tienda</a></nav><div class="sidebar-profile"><div class="profile-avatar">A</div><div><strong data-admin-name>Administrador</strong><span>Acceso completo</span></div><button type="button" data-logout>Salir</button></div></aside>
-    <main id="admin-main" class="admin-main">
-      <header class="admin-topbar"><div><span>Usuarios</span><strong>Editar registro</strong></div><a class="back-link" href="listado.html">← Volver al listado</a></header>
-      <div class="admin-content">
-        <section class="admin-page-heading"><div><p class="eyebrow">Actualizar acceso</p><h1>Editar usuario</h1><p>Modifica la ficha y los permisos sin perder su historial.</p></div></section>
-        <form id="user-form" class="admin-form-card admin-form-card--wide" novalidate>
-          <div class="form-section-title"><span>01</span><div><h2>Identidad y contacto</h2><p>Información principal del registro.</p></div></div>
-          <div class="field-grid"><div><label for="user-name">Nombre completo</label><input id="user-name" name="nombre" required /></div><div><label for="user-run">RUN</label><input id="user-run" name="run" /></div><div><label for="user-email">Correo electrónico</label><input id="user-email" name="correo" type="email" required /></div><div><label for="user-phone">Teléfono</label><input id="user-phone" name="telefono" type="tel" /></div><div><label for="user-region">Región</label><select id="user-region" name="region"><option>Coquimbo</option></select></div><div><label for="user-comuna">Comuna</label><select id="user-comuna" name="comuna" data-comuna-select><option value="">Selecciona una comuna</option></select></div><div><label for="user-role">Rol</label><select id="user-role" name="rol"><option>Contratista</option><option>Cliente</option><option>Vendedor</option><option>Administrador</option></select></div><div><label for="user-status">Estado</label><select id="user-status" name="estado"><option>Activo</option><option>Inactivo</option></select></div></div>
-          <label for="user-address">Dirección</label><input id="user-address" name="direccion" />
-          <label for="user-password">Contraseña</label><input id="user-password" name="clave" type="password" minlength="6" />
-          <p id="user-form-message" class="form-message" role="status" hidden></p><div class="form-actions"><a class="button button-secondary" href="listado.html">Cancelar</a><button class="button button-primary" type="submit">Guardar cambios</button></div>
-        </form>
-      </div>
-    </main>
-  </div>
-  <script src="../../assets/js/compartido/almacenamiento.js"></script><script src="../../assets/js/compartido/utilidades.js"></script><script src="../../assets/js/compartido/regiones.js"></script><script src="../../assets/js/validaciones/comunes.js"></script><script src="../../assets/js/validaciones/usuarios.js"></script><script src="../../assets/js/app.js"></script><script src="../../assets/js/admin/admin.js"></script><script src="../../assets/js/admin/usuarios.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar usuario | Administración</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="icon" href="../../assets/logo/los-maestros-marca.png" type="image/png">
+  </head>
+  <body class="admin-body" data-root="../../" data-admin-view="editar">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <a class="brand" href="../../index.html">
+          <span class="brand-mark">LM</span>
+          <span><strong>Los Maestros</strong> <small>Administración</small></span>
+        </a>
+        <div class="workspace-label">Menú principal</div>
+        <nav class="admin-nav">
+          <a href="../index.html"><span>01</span> Resumen</a>
+          <a class="is-active" href="listado.html"><span>02</span> Usuarios</a>
+          <a href="../productos/listado.html"><span>03</span> Productos</a>
+          <a href="../../tienda/catalogo.html"><span>04</span> Ver tienda</a>
+        </nav>
+        <div class="sidebar-profile">
+          <div class="profile-avatar">A</div>
+          <div>
+            <strong data-admin-name>Administrador</strong>
+            <span>Acceso completo</span>
+          </div>
+          <button type="button" data-logout>Salir</button>
+        </div>
+      </aside>
+
+      <main id="admin-main" class="admin-main">
+
+        <header class="admin-topbar">
+          <div>
+            <span>Usuarios</span>
+            <strong>Editar registro</strong>
+          </div>
+          <a class="back-link" href="listado.html">← Volver al listado</a>
+        </header>
+        <div class="admin-content">
+          <section class="admin-page-heading">
+            <div>
+              <p class="eyebrow">Actualizar acceso</p>
+              <h1>Editar usuario</h1>
+              <p>Modifica la ficha y los permisos sin perder su historial.</p>
+            </div>
+          </section>
+          <form id="user-form" class="admin-form-card admin-form-card--wide" novalidate>
+            <div class="form-section-title">
+              <span>01</span>
+              <div>
+                <h2>Identidad y contacto</h2>
+                <p>Información principal del registro.</p>
+              </div>
+            </div>
+            <div class="field-grid">
+              <div>
+                <label for="user-name">Nombre</label>
+                <input id="user-name" name="nombre" maxlength="50" required>
+              </div>
+              <div>
+                <label for="user-lastname">Apellidos</label>
+                <input id="user-lastname" name="apellidos" maxlength="100" required>
+              </div>
+              <div>
+                <label for="user-run">RUN</label>
+                <input id="user-run" name="run" maxlength="9" inputmode="text" placeholder="123456785" required
+              </div>
+              <div>
+                <label for="user-email">Correo electrónico</label>
+                <input id="user-email" name="correo" type="email" maxlength="100" required>
+              </div>
+              <div>
+                <label for="user-phone">Teléfono</label>
+                <input id="user-phone" name="telefono" type="tel">
+              </div>
+                <div>
+                  <label for="user-birthdate">Fecha de nacimiento (opcional)</label>
+                  <input id="user-birthdate" name="fechaNacimiento" type="date">
+                </div>
+              <div>
+                <label for="user-region">Región</label>
+                <select id="user-region" name="region" data-region-select required>
+                    <option value="">Selecciona una región</option>
+                  </select>
+              </div>
+              <div>
+                <label for="user-comuna">Comuna</label>
+                <select id="user-comuna" name="comuna" data-comuna-select required>
+                  <option value="">Selecciona una comuna</option>
+                </select>
+              </div>
+              <div>
+                <label for="user-role">Rol</label>
+                <select id="user-role" name="rol" required>
+                  <option>Contratista</option>
+                  <option>Cliente</option>
+                  <option>Vendedor</option>
+                  <option>Administrador</option>
+                </select>
+              </div>
+              <div>
+                <label for="user-status">Estado</label>
+                <select id="user-status" name="estado" required>
+                  <option>Activo</option>
+                  <option>Inactivo</option>
+                </select>
+              </div>
+            </div>
+            <label for="user-address">Dirección</label>
+            <input id="user-address" name="direccion" maxlength="300" required>
+            <label for="user-password">Contraseña</label>
+            <input id="user-password" name="clave" type="password" minlength="4" maxlength="10">
+            <p id="user-form-message" class="form-message" role="status" hidden></p>
+            <div class="form-actions">
+              <a class="button button-secondary" href="listado.html">Cancelar</a>
+              <button class="button button-primary" type="submit">Guardar cambios</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <script src="../../assets/js/compartido/almacenamiento.js"></script>
+    <script src="../../assets/js/compartido/utilidades.js"></script>
+    <script src="../../assets/js/compartido/regiones.js"></script>
+    <script src="../../assets/js/validaciones/comunes.js"></script>
+    <script src="../../assets/js/validaciones/usuarios.js"></script>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/admin/admin.js"></script>
+    <script src="../../assets/js/admin/usuarios.js"></script>
+  </body>
 </html>

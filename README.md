@@ -16,17 +16,17 @@ HTML5, CSS3, JavaScript y datos JSON locales.
 - Panel de vendedor con filtros, prioridades, estados e inventario.
 - Panel administrativo con gráficos, indicadores y gestión de usuarios y productos.
 - Formulario de contacto conectado con las consultas del panel administrativo.
-- Sección de consejos con guías sobre pintura y elección de herramientas.
+- Sección de Blogs con dos artículos y contenido multimedia embebido.
 - Persistencia local mediante `localStorage`.
 
 ## Perfiles de demostración
 
 | Perfil | Correo | Contraseña |
 |---|---|---|
-| Administrador | `admin@losmaestros.cl` | `demo123` |
-| Vendedor | `vendedor@losmaestros.cl` | `demo123` |
-| Contratista | `contratista@demo.cl` | `demo123` |
-| Usuario | `cliente@demo.cl` | `demo123` |
+| Administrador | `admin@duoc.cl` | `demo123` |
+| Vendedor | `vendedor@duoc.cl` | `demo123` |
+| Contratista | `contratista@gmail.com` | `demo123` |
+| Cliente | `cliente@gmail.com` | `demo123` |
 
 La autenticación es una simulación frontend. No se deben utilizar datos ni
 contraseñas reales.
@@ -47,6 +47,7 @@ Ferreteria_Api_06/
     │   ├── registro.html
     │   ├── cuenta.html
     │   ├── nosotros.html
+    │   ├── blogs.html
     │   ├── blog-pintura.html
     │   ├── blog-taladro.html
     │   └── contacto.html
@@ -79,15 +80,10 @@ Ferreteria_Api_06/
     │   │   ├── consejos/
     │   │   └── productos/originales/
     │   └── logo/
-    │       └── los-maestros.svg
+    │       └── los-maestros-marca.png
     └── data/
-        ├── catalogo/
-        │   └── productos.json
-        ├── demo/
-        │   ├── usuarios.json
-        │   ├── pedidos.json
-        │   └── consultas.json
-        └── productos.json
+        └── catalogo/
+            └── productos.json
 ```
 
 ## Ejecución local

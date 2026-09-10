@@ -1,54 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ingreso seguro a Ferretería Los Maestros." />
-  <title>Iniciar sesión | Ferretería Los Maestros</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png" />
-</head>
-<body data-page="acceso" data-root="../">
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <main id="contenido" class="login-experience" tabindex="-1">
-    <section class="login-brand-panel" data-profile-panel="general">
-      <a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Ferretería y construcción</small></span></a>
-      <div class="profile-story">
-        <p class="hero-kicker"><span></span> <b data-profile-kicker>Portal de clientes y equipo</b></p>
-        <h1 data-profile-title>Un acceso distinto para cada trabajo.</h1>
-        <p data-profile-description>Elige un perfil para conocer su espacio y cargar automáticamente sus credenciales de demostración.</p>
-        <ul class="profile-capabilities" data-profile-capabilities>
-          <li>Paneles separados según responsabilidades</li><li>Datos guardados localmente</li><li>Flujos simples de presentar</li>
-        </ul>
-      </div>
-      <dl><div><dt data-profile-stat>4</dt><dd data-profile-stat-label>perfiles especializados</dd></div><div><dt>100%</dt><dd>simulación frontend</dd></div></dl>
-    </section>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ingreso seguro a Ferretería Los Maestros.">
+    <title>Iniciar sesión | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png">
+  </head>
+  <body data-page="acceso" data-root="../">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <section class="login-form-panel">
-      <a class="back-link" href="../index.html">← Volver a la tienda</a>
-      <div class="login-card">
-        <p class="eyebrow">Acceso privado</p><h2>Bienvenido nuevamente</h2><p>Selecciona el bloque del perfil que quieres probar.</p>
-        <div class="demo-profile-grid demo-profile-grid--four" role="list">
-          <button type="button" data-demo-user="Administrador"><span class="profile-icon">A</span><strong>Administrador</strong><small>Control general</small></button>
-          <button type="button" data-demo-user="Vendedor"><span class="profile-icon">V</span><strong>Vendedor</strong><small>Ventas e inventario</small></button>
-          <button type="button" data-demo-user="Contratista"><span class="profile-icon">C</span><strong>Contratista</strong><small>Obras y pedidos</small></button>
-          <button type="button" data-demo-user="Cliente"><span class="profile-icon">U</span><strong>Usuario</strong><small>Compras personales</small></button>
+    <main id="contenido" class="login-experience" tabindex="-1">
+      <section class="login-brand-panel" data-profile-panel="general">
+        <a class="brand" href="../index.html">
+          <span class="brand-mark">LM</span>
+          <span><strong>Los Maestros</strong> <small>Ferretería y construcción</small></span>
+        </a>
+        <div class="profile-story">
+          <p class="hero-kicker"><span></span> <b data-profile-kicker>Portal de clientes y equipo</b></p>
+          <h1 data-profile-title>Un acceso distinto para cada trabajo.</h1>
+          <p data-profile-description>Elige un perfil para conocer su espacio y cargar automáticamente sus credenciales de demostración.</p>
+          <ul class="profile-capabilities" data-profile-capabilities>
+            <li>Paneles separados según responsabilidades</li>
+            <li>Datos guardados localmente</li>
+            <li>Flujos simples de presentar</li>
+          </ul>
         </div>
-        <div class="form-divider"><span>o ingresa manualmente</span></div>
-        <form id="login-form" novalidate>
-          <label for="login-email">Correo electrónico</label><input id="login-email" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.cl" required />
-          <label for="login-password">Contraseña</label><input id="login-password" name="clave" type="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres" required />
-          <p id="login-message" class="form-message" role="alert" hidden></p>
-          <button class="button button-primary button-large full" type="submit">Ingresar a mi espacio</button>
-        </form>
-        <p class="demo-help">Clave de los perfiles demo: <strong>demo123</strong></p><p class="register-prompt">¿Aún no tienes cuenta? <a href="registro.html">Crear cuenta de contratista</a></p>
-      </div>
-    </section>
-  </main>
-  <script src="../assets/js/compartido/almacenamiento.js"></script>
-  <script src="../assets/js/compartido/utilidades.js"></script>
-  <script src="../assets/js/validaciones/comunes.js"></script>
-  <script src="../assets/js/app.js"></script>
-  <script src="../assets/js/tienda/inicio-sesion.js"></script>
-</body>
+        <dl>
+          <div>
+            <dt data-profile-stat>4</dt>
+            <dd data-profile-stat-label>perfiles especializados</dd>
+          </div>
+          <div>
+            <dt>100%</dt>
+            <dd>simulación frontend</dd>
+          </div>
+        </dl>
+      </section>
+      <section class="login-form-panel">
+        <a class="back-link" href="../index.html">← Volver a la tienda</a>
+        <div class="login-card">
+          <p class="eyebrow">Acceso privado</p>
+          <h2>Bienvenido nuevamente</h2>
+          <p>Selecciona el bloque del perfil que quieres probar.</p>
+          <div class="demo-profile-grid demo-profile-grid--four" role="list">
+            <button type="button" data-demo-user="Administrador">
+              <span class="profile-icon">A</span>
+              <strong>Administrador</strong>
+              <small>Control general</small>
+            </button>
+            <button type="button" data-demo-user="Vendedor">
+              <span class="profile-icon">V</span>
+              <strong>Vendedor</strong>
+              <small>Ventas e inventario</small>
+            </button>
+            <button type="button" data-demo-user="Contratista">
+              <span class="profile-icon">C</span>
+              <strong>Contratista</strong>
+              <small>Obras y pedidos</small>
+            </button>
+            <button type="button" data-demo-user="Cliente">
+              <span class="profile-icon">U</span>
+              <strong>Usuario</strong>
+              <small>Compras personales</small>
+            </button>
+          </div>
+          <div class="form-divider">
+            <span>o ingresa manualmente</span>
+          </div>
+          <form id="login-form" novalidate>
+            <label for="login-email">Correo electrónico</label>
+            <input id="login-email" name="correo" type="email" autocomplete="email" placeholder="nombre@duoc.cl" maxlength="100" required>
+            <label for="login-password">Contraseña</label>
+            <input id="login-password" name="clave" type="password" autocomplete="current-password" placeholder="Entre 4 y 10 caracteres" minlength="4" maxlength="10" required>
+            <p id="login-message" class="form-message" role="alert" hidden></p>
+            <button class="button button-primary button-large full" type="submit">Ingresar a mi espacio</button>
+          </form>
+          <p class="demo-help">Clave de los perfiles demo: <strong>demo123</strong></p>
+          <p class="register-prompt">¿Aún no tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="../assets/js/compartido/almacenamiento.js"></script>
+    <script src="../assets/js/compartido/utilidades.js"></script>
+    <script src="../assets/js/validaciones/comunes.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/tienda/inicio-sesion.js"></script>
+  </body>
 </html>
