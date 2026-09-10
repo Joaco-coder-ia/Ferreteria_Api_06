@@ -1,106 +1,112 @@
 # Ferretería Los Maestros
 
-Proyecto frontend desarrollado para la Evaluación Parcial 1 de la asignatura
-**DSY1104 - Desarrollo Fullstack II**.
+Aplicación web frontend para consultar productos, preparar pedidos y administrar
+de forma simulada la operación de una ferretería. El proyecto utiliza solamente
+HTML5, CSS3, JavaScript y datos JSON locales.
 
-## Descripción
+## Funcionalidades
 
-Ferretería Los Maestros corresponde a la interfaz web de una tienda de
-productos de ferretería. El proyecto busca ofrecer una navegación clara,
-presentar un catálogo de productos y permitir la interacción del usuario con
-formularios y un carrito de compras simulado.
+- Inicio comercial adaptable a computador, tablet y teléfono.
+- Catálogo de 85 productos con búsqueda, categorías y filtro de stock.
+- Detalle independiente para cada producto.
+- Fotografías individuales para los 85 productos del catálogo.
+- Carrito persistente y confirmación simulada de pedidos.
+- Registro e inicio de sesión con validaciones en JavaScript.
+- Cuenta de cliente y contratista con historial, gráfico de compras y calculadora.
+- Panel de vendedor con filtros, prioridades, estados e inventario.
+- Panel administrativo con gráficos, indicadores y gestión de usuarios y productos.
+- Formulario de contacto conectado con las consultas del panel administrativo.
+- Sección de consejos con guías sobre pintura y elección de herramientas.
+- Persistencia local mediante `localStorage`.
 
-La solución se desarrolla exclusivamente en el frontend. No utiliza backend,
-base de datos ni pagos reales.
+## Perfiles de demostración
 
-## Tecnologías
+| Perfil | Correo | Contraseña |
+|---|---|---|
+| Administrador | `admin@losmaestros.cl` | `demo123` |
+| Vendedor | `vendedor@losmaestros.cl` | `demo123` |
+| Contratista | `contratista@demo.cl` | `demo123` |
+| Usuario | `cliente@demo.cl` | `demo123` |
 
-- HTML5 para la estructura semántica del contenido.
-- CSS3 externo para la presentación y el diseño adaptable.
-- JavaScript ES6+ para la interacción, validaciones y manejo de datos.
-- JSON como fuente local del catálogo de productos.
-- Git y GitHub para el control de versiones y el trabajo colaborativo.
+La autenticación es una simulación frontend. No se deben utilizar datos ni
+contraseñas reales.
 
-## Alcance funcional
-
-El proyecto contempla las siguientes funcionalidades:
-
-- Página de inicio de la tienda.
-- Catálogo y detalle de productos.
-- Búsqueda y filtrado de productos.
-- Carrito de compras simulado.
-- Inicio de sesión y registro de usuarios.
-- Formularios validados mediante JavaScript.
-- Persistencia local de información no sensible mediante `localStorage`.
-- Interfaz adaptable para computador, tablet y teléfono móvil.
-- Vistas administrativas para la gestión simulada de productos y usuarios.
-
-## Estructura del proyecto
+## Estructura
 
 ```text
 Ferreteria_Api_06/
-├── index.html
-├── productos.html
-├── producto.html
-├── carrito.html
-├── contacto.html
-├── ingreso.html
-├── registro.html
-├── cuenta.html
-├── assets/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── catalogo.js
-│   │   └── validaciones.js
-│   └── img/
-│       ├── construccion.svg
-│       ├── electricidad.svg
-│       ├── gasfiteria.svg
-│       ├── herramientas.svg
-│       ├── jardin.svg
-│       ├── madera.svg
-│       ├── pinturas.svg
-│       ├── seguridad.svg
-│       └── tornilleria.svg
-├── data/
-│   └── productos.json
-└── README.md
+├── README.md
+├── docs/
+└── frontend/
+    ├── index.html
+    ├── tienda/
+    │   ├── catalogo.html
+    │   ├── producto-detalle.html
+    │   ├── carrito.html
+    │   ├── inicio-sesion.html
+    │   ├── registro.html
+    │   ├── cuenta.html
+    │   ├── nosotros.html
+    │   ├── blog-pintura.html
+    │   ├── blog-taladro.html
+    │   └── contacto.html
+    ├── admin/
+    │   ├── index.html
+    │   ├── usuarios/
+    │   │   ├── listado.html
+    │   │   ├── nuevo.html
+    │   │   ├── editar.html
+    │   │   └── detalle.html
+    │   └── productos/
+    │       ├── listado.html
+    │       ├── nuevo.html
+    │       ├── editar.html
+    │       └── detalle.html
+    ├── vendedor/
+    │   └── index.html
+    ├── assets/
+    │   ├── css/
+    │   │   └── styles.css
+    │   ├── js/
+    │   │   ├── app.js
+    │   │   ├── compartido/
+    │   │   ├── tienda/
+    │   │   ├── admin/
+    │   │   ├── vendedor/
+    │   │   └── validaciones/
+    │   ├── img/
+    │   │   ├── inicio/
+    │   │   ├── consejos/
+    │   │   └── productos/originales/
+    │   └── logo/
+    │       └── los-maestros.svg
+    └── data/
+        ├── catalogo/
+        │   └── productos.json
+        ├── demo/
+        │   ├── usuarios.json
+        │   ├── pedidos.json
+        │   └── consultas.json
+        └── productos.json
 ```
-
-- `index.html`: contiene solamente la página de inicio.
-- `productos.html`: contiene el catálogo y sus filtros.
-- `producto.html`: muestra el detalle del producto seleccionado.
-- `carrito.html`: muestra los productos agregados y confirma pedidos simulados.
-- `contacto.html`: contiene el formulario de contacto.
-- `ingreso.html`: contiene el formulario de inicio de sesión.
-- `registro.html`: contiene el formulario de registro simulado.
-- `cuenta.html`: muestra el perfil y el panel correspondiente a cada rol.
-- `assets/css/styles.css`: reúne los estilos y las reglas responsive.
-- `assets/js/app.js`: contiene la navegación y los paneles de usuario.
-- `assets/js/catalogo.js`: contiene la lógica de productos y carrito.
-- `assets/js/validaciones.js`: contiene las validaciones de formularios.
-- `assets/img/`: contiene las imágenes locales del catálogo.
-- `data/productos.json`: almacena los datos locales de los productos.
 
 ## Ejecución local
 
-1. Descargar o clonar el repositorio.
-2. Abrir la carpeta del proyecto en Visual Studio Code.
-3. Instalar la extensión **Live Server**.
-4. Abrir `index.html` y seleccionar **Open with Live Server**.
+1. Abrir la carpeta `Ferreteria_Api_06` en Visual Studio Code.
+2. Instalar la extensión **Live Server**.
+3. Abrir `frontend/index.html`.
+4. Seleccionar **Open with Live Server**.
 
-También puede utilizarse cualquier servidor web estático. Se recomienda no
-abrir el archivo únicamente con doble clic, porque la carga del archivo JSON
-puede ser bloqueada por el navegador.
+Se recomienda utilizar Live Server porque el navegador puede bloquear la
+carga de `productos.json` cuando el HTML se abre directamente con doble clic.
 
-## Consideraciones
+## Tecnologías
 
-- La autenticación corresponde a una simulación frontend.
-- No deben ingresarse contraseñas ni datos personales reales.
-- El carrito y la sesión simulada pueden almacenarse localmente en el navegador.
-- El proyecto no procesa compras, pagos ni despachos reales.
+- HTML5 para estructura semántica.
+- CSS3 para identidad visual y diseño adaptable.
+- JavaScript para interacción, validaciones y perfiles.
+- JSON como fuente inicial del catálogo.
+- Git y GitHub para control de versiones.
 
 ## Integrantes
 
@@ -110,4 +116,4 @@ puede ser bloqueada por el navegador.
 
 ## Institución
 
-Duoc UC - Escuela de Informática y Telecomunicaciones.
+Duoc UC — Escuela de Informática y Telecomunicaciones.

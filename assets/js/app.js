@@ -33,7 +33,6 @@ function leerDatoGuardado(clave, valorInicial) {
   }
 }
 
-
 // Guarda los datos que cambian mientras usamos el sitio.
 const estadoAplicacion = {
   products: [],
@@ -103,12 +102,12 @@ function guardarEstado() {
 // Relaciona cada vista con su archivo HTML.
 const paginasDeLasVistas = {
   inicio: 'index.html',
-  acceso: 'ingreso.html',
-  registro: 'registro.html',
-  cuenta: 'cuenta.html',
+  acceso: 'index.html#acceso',
+  registro: 'index.html#registro',
+  cuenta: 'index.html#cuenta',
   catalogo: 'productos.html',
-  detalle: 'producto.html',
-  carrito: 'carrito.html',
+  detalle: 'productos.html#detalle',
+  carrito: 'productos.html#carrito',
   contacto: 'contacto.html'
 };
 
@@ -127,12 +126,12 @@ function actualizarEnlaceActivo(nombre) {
 
   const selectores = {
     inicio: 'a[href="index.html"]',
-    acceso: 'a[href="ingreso.html"]',
-    registro: 'a[href="ingreso.html"]',
-    cuenta: 'a[href="cuenta.html"]',
+    acceso: '[data-view="acceso"]',
+    registro: '[data-view="acceso"]',
+    cuenta: '[data-view="cuenta"]',
     catalogo: 'a[href="productos.html"]',
     detalle: 'a[href="productos.html"]',
-    carrito: 'a[href="carrito.html"]',
+    carrito: '[data-view="carrito"]',
     contacto: 'a[href="contacto.html"]'
   };
 
@@ -142,21 +141,60 @@ function actualizarEnlaceActivo(nombre) {
 }
 
 
-// Abre el archivo HTML que corresponde a cada sección.
-function mostrarVista(nombre) {
+// Muestra una vista o abre el HTML donde se encuentra.
+function mostrarVista(nombre, actualizarDireccion = true) {
   const vistaSeleccionada = buscarElemento(`#view-${nombre}`);
-  const paginaActual = document.body.dataset.page;
 
-  if (vistaSeleccionada && paginaActual === nombre) {
-    actualizarEnlaceActivo(nombre);
+  if (!vistaSeleccionada) {
+    const destino = paginasDeLasVistas[nombre];
+
+    if (destino) {
+      window.location.href = destino;
+    }
+
     return;
   }
 
-  const destino = paginasDeLasVistas[nombre];
+  document.querySelectorAll('.view').forEach((vista) => {
+    vista.hidden = vista !== vistaSeleccionada;
+  });
 
-  if (destino) {
-    window.location.href = destino;
+  document.querySelectorAll('[data-home-only]').forEach((seccion) => {
+    seccion.hidden = nombre !== 'inicio';
+  });
+
+  buscarElemento('.main-nav')?.classList.remove('is-open');
+  buscarElemento('.menu-button')?.setAttribute('aria-expanded', 'false');
+
+  actualizarEnlaceActivo(nombre);
+
+  if (nombre === 'catalogo') {
+    window.funcionesCatalogo?.mostrarCatalogo();
   }
+
+  if (nombre === 'carrito') {
+    window.funcionesCatalogo?.mostrarCarrito();
+  }
+
+  if (nombre === 'cuenta') {
+    mostrarCuenta();
+  }
+
+  if (actualizarDireccion) {
+    const vistaPrincipal = buscarElemento('#view-inicio')
+      ? 'inicio'
+      : 'catalogo';
+
+    const nuevaDireccion = nombre === vistaPrincipal
+      ? window.location.pathname
+      : `${window.location.pathname}#${nombre}`;
+
+    window.history.replaceState(null, '', nuevaDireccion);
+  }
+
+  buscarElemento('#app')?.focus({
+    preventScroll: true
+  });
 }
 
 
@@ -600,6 +638,16 @@ document.addEventListener('click', (evento) => {
 });
 
 
+// Mantiene la vista correcta al usar los botones del navegador.
+window.addEventListener('hashchange', () => {
+  const nombreVista = window.location.hash.replace('#', '');
+
+  if (nombreVista && buscarElemento(`#view-${nombreVista}`)) {
+    mostrarVista(nombreVista, false);
+  }
+});
+
+
 // Comparte las herramientas que necesitan los otros archivos.
 window.ferreteria = {
   usuariosDemo,
@@ -614,15 +662,17 @@ window.ferreteria = {
 };
 
 
-// Marca la página actual y prepara el contenido de la cuenta.
-const paginaActual = document.body.dataset.page;
+// Selecciona la vista inicial según la dirección.
+const vistaDeLaDireccion = window.location.hash.replace('#', '');
 
-if (paginaActual) {
-  actualizarEnlaceActivo(paginaActual);
-}
-
-if (paginaActual === 'cuenta') {
-  mostrarCuenta();
+if (vistaDeLaDireccion && buscarElemento(`#view-${vistaDeLaDireccion}`)) {
+  mostrarVista(vistaDeLaDireccion, false);
+} else if (buscarElemento('#view-inicio')) {
+  mostrarVista('inicio', false);
+} else if (buscarElemento('#view-catalogo')) {
+  mostrarVista('catalogo', false);
+} else if (window.location.pathname.endsWith('contacto.html')) {
+  actualizarEnlaceActivo('contacto');
 }
 
 guardarEstado();

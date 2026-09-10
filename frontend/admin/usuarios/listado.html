@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Usuarios | Administración</title><link rel="stylesheet" href="../../assets/css/styles.css" /><link rel="icon" href="../../assets/logo/los-maestros-marca.png" type="image/png" /></head>
+<body class="admin-body" data-root="../../" data-admin-view="listado">
+  <div class="admin-shell">
+    <aside class="admin-sidebar"><a class="brand" href="../../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Administración</small></span></a><div class="workspace-label">Menú principal</div><nav class="admin-nav"><a href="../index.html"><span>01</span>Resumen</a><a class="is-active" href="listado.html"><span>02</span>Usuarios</a><a href="../productos/listado.html"><span>03</span>Productos</a><a href="../../tienda/catalogo.html"><span>04</span>Ver tienda</a></nav><div class="sidebar-profile"><div class="profile-avatar">A</div><div><strong data-admin-name>Administrador</strong><span>Acceso completo</span></div><button type="button" data-logout>Salir</button></div></aside>
+    <main id="admin-main" class="admin-main">
+      <header class="admin-topbar"><div><span>Gestión del sistema</span><strong>Usuarios</strong></div><a class="button button-primary" href="nuevo.html">+ Nuevo usuario</a></header>
+      <div class="admin-content">
+        <section class="admin-page-heading"><div><p class="eyebrow">Control de accesos</p><h1>Personas y permisos</h1><p>Busca, revisa y administra cada perfil sin mezclar responsabilidades.</p></div><span id="users-count" class="chart-badge">0 usuarios</span></section>
+        <section id="user-metrics" class="admin-metrics user-metrics"></section>
+        <section class="admin-panel user-directory">
+          <div class="table-toolbar user-toolbar"><label><span>Buscar</span><input id="users-search" type="search" placeholder="Nombre, correo o código" /></label><label><span>Rol</span><select id="users-role-filter"><option value="todos">Todos los roles</option><option>Administrador</option><option>Vendedor</option><option>Contratista</option><option>Cliente</option></select></label><label><span>Estado</span><select id="users-status-filter"><option value="todos">Todos</option><option>Activo</option><option>Inactivo</option></select></label></div>
+          <p id="users-feedback" class="form-message" role="status" hidden></p>
+          <div class="table-scroll"><table class="admin-table"><thead><tr><th>Usuario</th><th>Rol</th><th>Comuna</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="users-table-body"></tbody></table></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/js/compartido/almacenamiento.js"></script><script src="../../assets/js/compartido/utilidades.js"></script><script src="../../assets/js/validaciones/comunes.js"></script><script src="../../assets/js/validaciones/usuarios.js"></script><script src="../../assets/js/app.js"></script><script src="../../assets/js/admin/admin.js"></script><script src="../../assets/js/admin/usuarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[
+  { "id": "PED-0001", "cliente": "Contratista Demo", "total": 189990, "fechaISO": "2026-08-12", "estado": "Listo" },
+  { "id": "PED-0002", "cliente": "Constructora Horizonte", "total": 428500, "fechaISO": "2026-08-19", "estado": "Listo" },
+  { "id": "PED-0003", "cliente": "Contratista Demo", "total": 76490, "fechaISO": "2026-08-27", "estado": "Listo" },
+  { "id": "PED-0004", "cliente": "Servicios Elqui", "total": 315800, "fechaISO": "2026-09-02", "estado": "Preparando" },
+  { "id": "PED-0005", "cliente": "Contratista Demo", "total": 142350, "fechaISO": "2026-09-06", "estado": "Preparando" },
+  { "id": "PED-0006", "cliente": "Maestranza Norte", "total": 99800, "fechaISO": "2026-09-08", "estado": "Pendiente" },
+  { "id": "PED-0007", "cliente": "Contratista Demo", "total": 234900, "fechaISO": "2026-09-10", "estado": "Pendiente" },
+  { "id": "PED-0008", "cliente": "Cliente Demo", "total": 48990, "fechaISO": "2026-09-10", "estado": "Preparando" }
+]

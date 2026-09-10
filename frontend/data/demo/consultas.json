@@ -1,0 +1,4 @@
+[
+  { "id": "CON-001", "nombre": "María Soto", "asunto": "Cotización para obra", "fecha": "9 sept 2026", "estado": "Nueva" },
+  { "id": "CON-002", "nombre": "Diego Pérez", "asunto": "Retiro de pedido", "fecha": "10 sept 2026", "estado": "Nueva" }
+]

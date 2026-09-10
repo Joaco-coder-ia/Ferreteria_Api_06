@@ -1,0 +1,6 @@
+[
+  { "id": "USR-001", "nombre": "Administrador General", "correo": "admin@losmaestros.cl", "rol": "Administrador", "estado": "Activo", "comuna": "La Serena" },
+  { "id": "USR-002", "nombre": "Camila Vendedora", "correo": "vendedor@losmaestros.cl", "rol": "Vendedor", "estado": "Activo", "comuna": "Coquimbo" },
+  { "id": "USR-003", "nombre": "Contratista Demo", "correo": "contratista@demo.cl", "rol": "Contratista", "estado": "Activo", "comuna": "La Serena" },
+  { "id": "USR-004", "nombre": "Cliente Demo", "correo": "cliente@demo.cl", "rol": "Cliente", "estado": "Activo", "comuna": "Ovalle" }
+]

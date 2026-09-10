@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de materiales y herramientas de Ferretería Los Maestros." />
+  <title>Catálogo | Ferretería Los Maestros</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png" />
+</head>
+<body data-page="catalogo" data-root="../" data-products="../data/catalogo/productos.json">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="topbar"><p>Despacho en La Serena y Coquimbo</p><p>Asesoría para tu proyecto</p></div>
+  <header class="site-header professional-header">
+    <a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Ferretería y construcción</small></span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">☰ <span>Menú</span></button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal"><a href="../index.html">Inicio</a><a href="catalogo.html" aria-current="page">Catálogo</a><a href="nosotros.html">Nosotros</a><a href="contacto.html">Contacto</a></nav>
+    <div class="header-actions"><a class="header-link" href="inicio-sesion.html" data-session-link>Mi cuenta</a><a class="cart-link" href="carrito.html">Carrito <span data-cart-count>0</span></a></div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <section class="page-hero catalog-hero"><div><p class="eyebrow">Catálogo profesional</p><h1>Materiales listos para avanzar.</h1><p>Busca por nombre, marca o código y revisa el stock antes de preparar tu pedido.</p></div><div class="page-hero__marker"><strong>85</strong><span>referencias locales</span></div></section>
+    <section class="catalog-workspace">
+      <form id="filter-form" class="pro-filter-bar" novalidate>
+        <div class="search-field"><label for="search">¿Qué necesitas?</label><input id="search" type="search" placeholder="Ej.: taladro, cemento o MC001" /></div>
+        <div><label for="category">Categoría</label><select id="category"><option>Todas las categorías</option></select></div>
+        <label class="stock-switch"><input id="stock-only" type="checkbox" /><span>Mostrar sólo productos con stock</span></label>
+      </form>
+      <div class="catalog-results-heading"><p id="catalog-status" aria-live="polite">Cargando productos...</p><span>Precios con IVA incluido</span></div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+    <div id="catalog-toast" class="catalog-toast" role="status" hidden></div>
+  </main>
+
+  <footer class="site-footer professional-footer"><div><a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Ferretería y construcción</small></span></a><p>Materiales y atención experta para proyectos que deben avanzar.</p></div><div><strong>Tienda</strong><a href="catalogo.html">Catálogo</a><a href="carrito.html">Carrito</a><a href="cuenta.html">Mi cuenta</a></div><div><strong>Empresa</strong><a href="nosotros.html">Nosotros</a><a href="contacto.html">Contacto</a></div><div><strong>Horario</strong><span>Lun–Vie 08:30–19:00</span><span>Sábado 09:00–14:00</span></div></footer>
+  <script src="../assets/js/compartido/almacenamiento.js"></script><script src="../assets/js/compartido/utilidades.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/tienda/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panel de ventas de Ferretería Los Maestros." />
+  <title>Panel de vendedor | Los Maestros</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png" />
+</head>
+<body class="seller-body" data-root="../" data-products="../data/catalogo/productos.json">
+  <a class="skip-link" href="#seller-main">Saltar al contenido</a>
+  <header class="seller-header">
+    <a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Equipo de ventas</small></span></a>
+    <nav aria-label="Panel de vendedor"><a href="#pedidos">Pedidos</a><a href="#inventario">Inventario</a><a href="../tienda/catalogo.html">Tienda</a></nav>
+    <div class="seller-profile"><span data-seller-name>Vendedor</span><button type="button" data-logout>Salir</button></div>
+  </header>
+  <main id="seller-main" class="seller-main">
+    <section class="seller-welcome">
+      <div><p class="eyebrow">Espacio de trabajo</p><h1>Pedidos e inventario, sin distracciones.</h1><p>Hola, <strong data-seller-name>Vendedor</strong>. Aquí puedes revisar y actualizar lo que debe prepararse hoy.</p></div>
+      <div class="seller-date"><span>Fecha de trabajo</span><strong data-current-date>Hoy</strong></div>
+    </section>
+    <section class="seller-metrics" data-seller-metrics aria-label="Indicadores del vendedor"></section>
+    <section class="seller-analytics">
+      <article class="seller-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Flujo operativo</p><h2>Estado de pedidos</h2></div></div>
+        <div id="seller-order-chart" class="donut-chart-layout compact-donut"></div>
+      </article>
+      <article class="seller-panel seller-panel--wide">
+        <div class="panel-heading"><div><p class="eyebrow">Prioridad</p><h2>Próximos pedidos a resolver</h2></div><span class="chart-badge">Orden de llegada</span></div>
+        <div id="seller-priority" class="priority-board"></div>
+      </article>
+    </section>
+    <section class="seller-grid">
+      <article id="pedidos" class="seller-panel seller-panel--wide">
+        <div class="panel-heading"><div><p class="eyebrow">Cola de trabajo</p><h2>Gestión de pedidos</h2></div><a class="button button-secondary" href="../tienda/catalogo.html">Consultar catálogo</a></div>
+        <div class="table-toolbar">
+          <label><span>Buscar pedido</span><input id="seller-search" type="search" placeholder="Código o cliente" /></label>
+          <label><span>Mostrar estado</span><select id="seller-status-filter"><option value="todos">Todos</option><option>Pendiente</option><option>Preparando</option><option>Listo</option></select></label>
+        </div>
+        <p id="seller-feedback" class="form-message" role="status" hidden></p>
+        <div class="table-scroll"><table class="admin-table"><thead><tr><th>Pedido y cliente</th><th>Total</th><th>Entrega</th><th>Estado</th></tr></thead><tbody id="seller-orders"></tbody></table></div>
+      </article>
+      <article id="inventario" class="seller-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Atención</p><h2>Stock para informar</h2></div></div>
+        <ul id="seller-stock" class="inventory-list"></ul>
+      </article>
+      <article class="seller-panel seller-actions">
+        <p class="eyebrow">Accesos rápidos</p><h2>Herramientas del vendedor</h2>
+        <a href="../tienda/catalogo.html"><strong>Consultar producto</strong><span>Precio y disponibilidad →</span></a>
+        <a href="../tienda/carrito.html"><strong>Preparar venta</strong><span>Carrito y entrega →</span></a>
+        <a href="../tienda/contacto.html"><strong>Canal de atención</strong><span>Ayudar a un cliente →</span></a>
+      </article>
+    </section>
+  </main>
+  <script src="../assets/js/compartido/almacenamiento.js"></script>
+  <script src="../assets/js/compartido/utilidades.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/vendedor/vendedor.js"></script>
+</body>
+</html>
