@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,11 +9,13 @@
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <link rel="icon" href="../assets/logo/los-maestros-marca.png" type="image/png" />
 </head>
+
 <body class="admin-body" data-root="../" data-products="../data/catalogo/productos.json">
   <a class="skip-link" href="#admin-main">Saltar al contenido</a>
   <div class="admin-shell">
     <aside class="admin-sidebar">
-      <a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los Maestros</strong><small>Administración</small></span></a>
+      <a class="brand" href="../index.html"><span class="brand-mark">LM</span><span><strong>Los
+            Maestros</strong><small>Administración</small></span></a>
       <div class="workspace-label">Menú principal</div>
       <nav class="admin-nav" aria-label="Navegación administrativa">
         <a class="is-active" href="index.html"><span>01</span>Resumen</a>
@@ -20,7 +23,11 @@
         <a href="productos/listado.html"><span>03</span>Productos</a>
         <a href="../tienda/catalogo.html"><span>04</span>Ver tienda</a>
       </nav>
-      <div class="sidebar-profile"><div class="profile-avatar">A</div><div><strong data-admin-name>Administrador</strong><span>Acceso completo</span></div><button type="button" data-logout title="Cerrar sesión">Salir</button></div>
+      <div class="sidebar-profile">
+        <div class="profile-avatar">A</div>
+        <div><strong data-admin-name>Administrador</strong><span>Acceso completo</span></div><button type="button"
+          data-logout title="Cerrar sesión">Salir</button>
+      </div>
     </aside>
 
     <main id="admin-main" class="admin-main">
@@ -32,7 +39,11 @@
 
       <div id="admin-dashboard" class="admin-content">
         <section class="admin-welcome">
-          <div><p class="eyebrow">Resumen general</p><h1>Buenos días, <span data-admin-name>Administrador</span>.</h1><p>Revisa ventas, inventario, usuarios y solicitudes desde un solo lugar.</p></div>
+          <div>
+            <p class="eyebrow">Resumen general</p>
+            <h1>Buenos días, <span data-admin-name>Administrador</span>.</h1>
+            <p>Revisa ventas, inventario, usuarios y solicitudes desde un solo lugar.</p>
+          </div>
           <div class="live-indicator"><span></span> Datos locales actualizados</div>
         </section>
 
@@ -40,34 +51,77 @@
 
         <section class="analytics-grid" aria-label="Análisis del negocio">
           <article class="admin-panel analytics-card analytics-card--wide">
-            <div class="panel-heading"><div><p class="eyebrow">Rendimiento</p><h2>Ventas recientes</h2></div><span class="chart-badge">Últimos 6 pedidos</span></div>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Rendimiento</p>
+                <h2>Ventas recientes</h2>
+              </div><span class="chart-badge">Últimos 6 pedidos</span>
+            </div>
             <div id="admin-sales-chart" class="sales-chart" role="img" aria-label="Gráfico de ventas recientes"></div>
           </article>
           <article class="admin-panel analytics-card">
-            <div class="panel-heading"><div><p class="eyebrow">Flujo de trabajo</p><h2>Estado de pedidos</h2></div></div>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Flujo de trabajo</p>
+                <h2>Estado de pedidos</h2>
+              </div>
+            </div>
             <div id="admin-order-chart" class="donut-chart-layout"></div>
           </article>
           <article class="admin-panel analytics-card analytics-card--full">
-            <div class="panel-heading"><div><p class="eyebrow">Cobertura</p><h2>Inventario por categoría</h2></div><a href="productos/listado.html">Ver inventario</a></div>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Cobertura</p>
+                <h2>Inventario por categoría</h2>
+              </div><a href="productos/listado.html">Ver inventario</a>
+            </div>
             <div id="admin-category-chart" class="horizontal-chart"></div>
           </article>
         </section>
 
         <section class="admin-dashboard-grid">
           <article class="admin-panel admin-panel--wide">
-            <div class="panel-heading"><div><p class="eyebrow">Operación</p><h2>Pedidos recientes</h2></div><span class="chart-badge">Actualización local</span></div>
-            <div class="table-scroll"><table class="admin-table"><thead><tr><th>Pedido</th><th>Cliente</th><th>Total</th><th>Estado</th></tr></thead><tbody id="admin-orders"></tbody></table></div>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Operación</p>
+                <h2>Pedidos recientes</h2>
+              </div><span class="chart-badge">Actualización local</span>
+            </div>
+            <div class="table-scroll">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Pedido</th>
+                    <th>Cliente</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders"></tbody>
+              </table>
+            </div>
           </article>
           <article class="admin-panel">
-            <div class="panel-heading"><div><p class="eyebrow">Inventario</p><h2>Stock crítico</h2></div><a href="productos/listado.html">Gestionar</a></div>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Inventario</p>
+                <h2>Stock crítico</h2>
+              </div><a href="productos/listado.html">Gestionar</a>
+            </div>
             <ul id="admin-stock" class="inventory-list"></ul>
           </article>
           <article id="admin-messages-panel" class="admin-panel admin-panel--wide">
-            <div class="panel-heading"><div><p class="eyebrow">Servicio al cliente</p><h2>Últimas consultas</h2></div></div>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Servicio al cliente</p>
+                <h2>Últimas consultas</h2>
+              </div>
+            </div>
             <div id="admin-messages" class="admin-message-list"></div>
           </article>
           <article class="admin-panel quick-admin-actions">
-            <p class="eyebrow">Acciones rápidas</p><h2>Crear un registro</h2>
+            <p class="eyebrow">Acciones rápidas</p>
+            <h2>Crear un registro</h2>
             <a class="button button-primary" href="productos/nuevo.html">Nuevo producto</a>
             <a class="button button-secondary" href="usuarios/nuevo.html">Nuevo usuario</a>
           </article>
@@ -80,4 +134,5 @@
   <script src="../assets/js/app.js"></script>
   <script src="../assets/js/admin/admin.js"></script>
 </body>
+
 </html>

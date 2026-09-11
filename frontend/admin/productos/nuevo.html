@@ -1,148 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo producto | Administración</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="icon" href="../../assets/logo/los-maestros-marca.png" type="image/png">
-  </head>
-  <body class="admin-body" data-root="../../" data-admin-view="nuevo" data-products="../../data/catalogo/productos.json">
-    <div class="admin-shell">
-      <aside class="admin-sidebar">
-        <a class="brand" href="../../index.html">
-          <span class="brand-mark">LM</span>
-          <span><strong>Los Maestros</strong> <small>Administración</small></span>
-        </a>
-        <div class="workspace-label">Menú principal</div>
-        <nav class="admin-nav">
-          <a href="../index.html"><span>01</span> Resumen</a>
-          <a href="../usuarios/listado.html"><span>02</span> Usuarios</a>
-          <a class="is-active" href="listado.html"><span>03</span> Productos</a>
-          <a href="../../tienda/catalogo.html"><span>04</span> Ver tienda</a>
-        </nav>
-        <div class="sidebar-profile">
-          <div class="profile-avatar">A</div>
-          <div>
-            <strong data-admin-name>Administrador</strong>
-            <span>Acceso completo</span>
-          </div>
-          <button type="button" data-logout>Salir</button>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo producto | Administración</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="icon" href="../../assets/logo/los-maestros-marca.png" type="image/png">
+</head>
+
+<body class="admin-body" data-root="../../" data-admin-view="nuevo" data-products="../../data/catalogo/productos.json">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark">LM</span>
+        <span><strong>Los Maestros</strong> <small>Administración</small></span>
+      </a>
+      <div class="workspace-label">Menú principal</div>
+      <nav class="admin-nav">
+        <a href="../index.html"><span>01</span> Resumen</a>
+        <a href="../usuarios/listado.html"><span>02</span> Usuarios</a>
+        <a class="is-active" href="listado.html"><span>03</span> Productos</a>
+        <a href="../../tienda/catalogo.html"><span>04</span> Ver tienda</a>
+      </nav>
+      <div class="sidebar-profile">
+        <div class="profile-avatar">A</div>
+        <div>
+          <strong data-admin-name>Administrador</strong>
+          <span>Acceso completo</span>
         </div>
-      </aside>
+        <button type="button" data-logout>Salir</button>
+      </div>
+    </aside>
 
-      <main id="admin-main" class="admin-main">
+    <main id="admin-main" class="admin-main">
 
-        <header class="admin-topbar">
+      <header class="admin-topbar">
+        <div>
+          <span>Productos</span>
+          <strong>Nuevo registro</strong>
+        </div>
+        <a class="back-link" href="listado.html">← Volver al listado</a>
+      </header>
+      <div class="admin-content">
+        <section class="admin-page-heading">
           <div>
-            <span>Productos</span>
-            <strong>Nuevo registro</strong>
+            <p class="eyebrow">Ampliar catálogo</p>
+            <h1>Nuevo producto</h1>
+            <p>Completa los datos comerciales y de inventario.</p>
           </div>
-          <a class="back-link" href="listado.html">← Volver al listado</a>
-        </header>
-        <div class="admin-content">
-          <section class="admin-page-heading">
+        </section>
+        <form id="product-form" class="admin-form-card admin-form-card--wide" novalidate>
+          <div class="form-section-title">
+            <span>01</span>
             <div>
-              <p class="eyebrow">Ampliar catálogo</p>
-              <h1>Nuevo producto</h1>
-              <p>Completa los datos comerciales y de inventario.</p>
+              <h2>Identificación</h2>
+              <p>Información visible para clientes y equipo.</p>
             </div>
-          </section>
-          <form id="product-form" class="admin-form-card admin-form-card--wide" novalidate>
-            <div class="form-section-title">
-              <span>01</span>
-              <div>
-                <h2>Identificación</h2>
-                <p>Información visible para clientes y equipo.</p>
-              </div>
+          </div>
+          <div class="field-grid">
+            <div>
+              <label for="product-code">Código</label>
+              <input id="product-code" name="codigo" placeholder="HE017" minlength="3" required>
             </div>
-            <div class="field-grid">
-              <div>
-                <label for="product-code">Código</label>
-                <input id="product-code" name="codigo" placeholder="HE017" minlength="3" required>
-              </div>
-              <div>
-                <label for="product-name">Nombre</label>
-                <input id="product-name" name="nombre" maxlength="100" required>
-              </div>
-              <div>
-                <label for="product-brand">Marca</label>
-                <input id="product-brand" name="marca" required>
-              </div>
-              <div>
-                <label for="product-category">Categoría</label>
-                <select id="product-category" name="categoria" required>
-                  <option>Herramientas</option>
-                  <option>Mat. Construcción</option>
-                  <option>Electricidad</option>
-                  <option>Gasfitería</option>
-                  <option>Pinturas</option>
-                  <option>Madera</option>
-                  <option>Jardín</option>
-                  <option>Seguridad</option>
-                  <option>Tornillería</option>
-                </select>
-              </div>
-              <div>
-                <label for="product-subcategory">Subcategoría</label>
-                <input id="product-subcategory" name="subcategoria" required>
-              </div>
-              <div>
-                <label for="product-unit">Unidad</label>
-                <input id="product-unit" name="unidad" value="Unidad" required>
-              </div>
+            <div>
+              <label for="product-name">Nombre</label>
+              <input id="product-name" name="nombre" maxlength="100" required>
             </div>
-            <div class="field-grid product-extra-fields">
-              <div>
-                <label for="product-image">Imagen (ruta o URL)</label>
-                <input id="product-image" name="imagen" placeholder="assets/img/productos/imagen.jpg">
-              </div>
-              <div>
-                <label for="product-description">Descripción (opcional)</label>
-                <textarea id="product-description" name="descripcion" maxlength="500" rows="3" placeholder="Descripción breve del producto"></textarea>
-              </div>
+            <div>
+              <label for="product-brand">Marca</label>
+              <input id="product-brand" name="marca" required>
             </div>
-            <div class="form-section-title">
-              <span>02</span>
-              <div>
-                <h2>Precio e inventario</h2>
-                <p>Valores usados en catálogo y alertas.</p>
-              </div>
+            <div>
+              <label for="product-category">Categoría</label>
+              <select id="product-category" name="categoria" required>
+                <option>Herramientas</option>
+                <option>Mat. Construcción</option>
+                <option>Electricidad</option>
+                <option>Gasfitería</option>
+                <option>Pinturas</option>
+                <option>Madera</option>
+                <option>Jardín</option>
+                <option>Seguridad</option>
+                <option>Tornillería</option>
+              </select>
             </div>
-            <div class="field-grid">
-              <div>
-                <label for="sale-price">Precio de venta</label>
-                <input id="sale-price" name="precioVenta" type="number" min="0" step="0.01" required>
-              </div>
-              <div>
-                <label for="cost-price">Precio de compra</label>
-                <input id="cost-price" name="precioCompra" type="number" min="0" step="0.01" required>
-              </div>
-              <div>
-                <label for="product-stock">Stock actual</label>
-                <input id="product-stock" name="stock" type="number" min="0" step="1" required>
-              </div>
-              <div>
-                <label for="minimum-stock">Stock mínimo</label>
-                <input id="minimum-stock" name="stockMinimo" type="number" min="0" step="1">
-              </div>
+            <div>
+              <label for="product-subcategory">Subcategoría</label>
+              <input id="product-subcategory" name="subcategoria" required>
             </div>
-            <p id="product-form-message" class="form-message" role="status" hidden></p>
-            <div class="form-actions">
-              <a class="button button-secondary" href="listado.html">Cancelar</a>
-              <button class="button button-primary" type="submit">Guardar producto</button>
+            <div>
+              <label for="product-unit">Unidad</label>
+              <input id="product-unit" name="unidad" value="Unidad" required>
             </div>
-          </form>
-        </div>
-      </main>
-    </div>
+          </div>
+          <div class="field-grid product-extra-fields">
+            <div>
+              <label for="product-image">Imagen (ruta o URL)</label>
+              <input id="product-image" name="imagen" placeholder="assets/img/productos/imagen.jpg">
+            </div>
+            <div>
+              <label for="product-description">Descripción (opcional)</label>
+              <textarea id="product-description" name="descripcion" maxlength="500" rows="3"
+                placeholder="Descripción breve del producto"></textarea>
+            </div>
+          </div>
+          <div class="form-section-title">
+            <span>02</span>
+            <div>
+              <h2>Precio e inventario</h2>
+              <p>Valores usados en catálogo y alertas.</p>
+            </div>
+          </div>
+          <div class="field-grid">
+            <div>
+              <label for="sale-price">Precio de venta</label>
+              <input id="sale-price" name="precioVenta" type="number" min="0" step="0.01" required>
+            </div>
+            <div>
+              <label for="cost-price">Precio de compra</label>
+              <input id="cost-price" name="precioCompra" type="number" min="0" step="0.01" required>
+            </div>
+            <div>
+              <label for="product-stock">Stock actual</label>
+              <input id="product-stock" name="stock" type="number" min="0" step="1" required>
+            </div>
+            <div>
+              <label for="minimum-stock">Stock mínimo</label>
+              <input id="minimum-stock" name="stockMinimo" type="number" min="0" step="1">
+            </div>
+          </div>
+          <p id="product-form-message" class="form-message" role="status" hidden></p>
+          <div class="form-actions">
+            <a class="button button-secondary" href="listado.html">Cancelar</a>
+            <button class="button button-primary" type="submit">Guardar producto</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
 
-    <script src="../../assets/js/compartido/almacenamiento.js"></script>
-    <script src="../../assets/js/compartido/utilidades.js"></script>
-    <script src="../../assets/js/validaciones/comunes.js"></script>
-    <script src="../../assets/js/validaciones/productos.js"></script>
-    <script src="../../assets/js/app.js"></script>
-    <script src="../../assets/js/admin/admin.js"></script>
-    <script src="../../assets/js/admin/productos.js"></script>
-  </body>
+  <script src="../../assets/js/compartido/almacenamiento.js"></script>
+  <script src="../../assets/js/compartido/utilidades.js"></script>
+  <script src="../../assets/js/validaciones/comunes.js"></script>
+  <script src="../../assets/js/validaciones/productos.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/admin/admin.js"></script>
+  <script src="../../assets/js/admin/productos.js"></script>
+</body>
+
 </html>
